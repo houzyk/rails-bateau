@@ -8,4 +8,6 @@ class User < ApplicationRecord
   has_many :calendars, dependent: :destroy
   has_many :schedules, through: :calendars, dependent: :destroy
   has_many :subjects
+  has_many :classrooms
+  has_many :subjects, through: :classrooms
 end
