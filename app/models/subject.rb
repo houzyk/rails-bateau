@@ -1,4 +1,5 @@
 class Subject < ApplicationRecord
+  # ! CONFLICTING ASSOCIATIONS   
   belongs_to :user # for a teacher
   has_many :chapters, dependent: :destroy
   belongs_to :category
