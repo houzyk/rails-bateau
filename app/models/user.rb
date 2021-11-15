@@ -7,8 +7,9 @@ class User < ApplicationRecord
   has_many :chatrooms, through: :messages, dependent: :destroy
   has_many :calendars, dependent: :destroy
   has_many :schedules, through: :calendars, dependent: :destroy
-  has_many :subjects # for teachers
-  has_many :classrooms
+  # has_many :subjects # for teachers
   # !Need to analyze how to do this type of assiociation first
-  has_many :subjects_as_student, through: :classrooms, source: :subjects
+  # has_many :subjects_as_student, through: :classrooms, source: :subjects
+  has_many :classrooms
+  has_many :subjects, through: :classrooms
 end
