@@ -6,5 +6,5 @@ class User < ApplicationRecord
   has_many :messages, dependent: :destroy
   has_many :chatrooms, through: :messages
   has_many :calendars, dependent: :destroy
-  has_many :schedules, through: :calendars
+  has_many :schedules, through: :calendars, dependent: :destroy
 end
