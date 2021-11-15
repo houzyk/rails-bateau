@@ -35,6 +35,8 @@ gem 'font-awesome-sass'
 gem 'simple_form'
 # ADDED GEMS
 gem 'pundit'
+gem 'cloudinary', '~> 1.16.0'
+
 group :development, :test do  gem 'pry-byebug'
   gem 'pry-rails'
   gem 'dotenv-rails'
