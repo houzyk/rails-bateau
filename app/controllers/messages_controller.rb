@@ -9,6 +9,7 @@ class MessagesController < ApplicationController
     else
       render 'chatrooms/show'
     end
+    authorize @message
   end
 
   private
