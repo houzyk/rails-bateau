@@ -1,6 +1,11 @@
 <div class="container">
   <h2><%= @chapter.title %></h2>
   <p><%= @chapter.description %></p>
+  <% @chapter.materials.each do |material| %>
+    <div>
+      <%= material.name %>
+    </div>
+  <% end %>
 </div>
 
-<%= link_to 'Add Material', path %>
+<%= link_to 'Add Material', new_subject_chapter_material_path(@chapter.subject, @chapter) %>
