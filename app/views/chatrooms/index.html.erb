@@ -1,7 +1,9 @@
 <div class="container my-4">
   <% @chatrooms.each do |chatroom| %>
-    <%= chatroom.name%>
-    <%= link_to "Go to Chatroom", chatroom_path(chatroom) %>
+    <div>
+      <%= chatroom.name%>
+      <%= link_to "Go to Chatroom", chatroom_path(chatroom) %>
+    </div>
   <% end %>
   <!-- Button trigger modal -->
   <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#newUserModal">
