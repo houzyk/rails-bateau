@@ -1,4 +1,5 @@
 class MaterialsController < ApplicationController
+  # after_action :authorize_material
   # def show
   #   @material = Material.find(params[:material_id])
   #   authorize @material
@@ -51,4 +52,8 @@ class MaterialsController < ApplicationController
   def material_params
     params.require(:material).permit(:name, :subject_id, :chapter_id)
   end
+
+  # def authorize_material
+  #   authorize @material
+  # end
 end
