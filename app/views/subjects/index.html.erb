@@ -1,0 +1,9 @@
+<h1>Subject List</h1>
+
+<div class="cards mt-4 container">
+  <% @subjects.each do |subject| %>
+    <div class="card">
+      <%= link_to subject.name, subject_path(subject) %>
+    </div>
+  <% end %>
+</div>
