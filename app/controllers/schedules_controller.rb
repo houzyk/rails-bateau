@@ -1,5 +1,4 @@
 class SchedulesController < ApplicationController
-
   def index
     @schedules = policy_scope(Schedule)
   end
@@ -42,5 +41,4 @@ class SchedulesController < ApplicationController
   def schedule_params
     params.require(:schedule).permit(:content, :date)
   end
-
 end
