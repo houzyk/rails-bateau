@@ -1,4 +1,5 @@
 class Schedule < ApplicationRecord
+  belongs_to :user
   validates :content, :date, presence: true
   validate :date_cannot_be_in_the_past
 
