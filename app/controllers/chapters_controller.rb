@@ -23,17 +23,21 @@ class ChaptersController < ApplicationController
   end
 
   def edit
-    @chapter = Chapter.find(params[:chapter_id])
+    @chapter = Chapter.find(params[:id])
     authorize @chapter
   end
 
   def update
-    @chapter = Chapter.find(params[:chapter_id])
+    @chapter = Chapter.find(params[:id])
+    @chapter.update(chapter_params)
+    redirect_to subject_path(@chapter.subject)
     authorize @chapter
   end
 
   def destroy
-    @chapter = Chapter.find(params[:chapter_id])
+    @chapter = Chapter.find(params[:id])
+    @chapter.destroy
+    redirect_to subject_path(@chapter.subject)
     authorize @chapter
   end
 
