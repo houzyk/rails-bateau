@@ -1,0 +1,11 @@
+<div class="container">
+  <ul>
+    <% @schedules.each do |schedule|%>
+      <li>
+        <%= schedule.content %> | <%= schedule.date %>
+      </li>
+    <% end %>
+  </ul>
+
+  <%= link_to "Create a New Schedule", new_schedule_path %>
+</div>
