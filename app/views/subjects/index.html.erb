@@ -1,0 +1,10 @@
+<h1>Subject List</h1>
+
+<div class="cards">
+  <% @subjects.each do |subject| %>
+    <div class="card">
+      <%= subject.name %>
+      <%= link_to 'Chemistry', path %>
+    </div>
+  <% end %>
+</div>
