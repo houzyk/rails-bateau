@@ -29,15 +29,18 @@ class ChaptersController < ApplicationController
 
   def update
     @chapter = Chapter.find(params[:id])
-    @chapter.update(chapter_params)
-    redirect_to subject_path(@chapter.subject)
+    if @chapter.update(chapter_params)
+      redirect_to subject_path(@chapter.subject)
+    else
+      render :edit
+    end
     authorize @chapter
   end
 
   def destroy
     @chapter = Chapter.find(params[:id])
-    @chapter.destroy
-    redirect_to subject_path(@chapter.subject)
+    # ! INSERT AN IF TO CHECK FOR POTENTIAL ERROS
+    redirect_to subject_path(@chapter.subject) if @chapter.destroy
     authorize @chapter
   end
 
