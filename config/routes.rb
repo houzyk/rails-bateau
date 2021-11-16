@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   resources :chapters, only: %i[destroy edit update]
   resources :materials, only: %i[destroy edit update]
 
-  resources :chatrooms, only: %i[index show] do
+  resources :chatrooms, only: %i[index show create] do
     resources :messages, only: :create
   end
 
