@@ -1,0 +1,6 @@
+<div class="container">
+  <%= simple_form_for [ @chatroom, @message ] do |f| %>
+    <%= f.input :content, label: false, placeholder: "Message ##{@chatroom.name}" %>
+    <%= f.submit%>
+  <% end %>
+</div>
