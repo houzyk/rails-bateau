@@ -10,6 +10,7 @@ class SchedulesController < ApplicationController
 
   def create
     @schedule = Schedule.new(schedule_params)
+    @schedule.user = current_user
     if @schedule.save
       redirect_to schedules_path
     else
