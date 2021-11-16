@@ -12,22 +12,16 @@
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
         <li class="nav-item active">
-          <%= link_to "Home", "#", class: "nav-link" %>
+          <%= link_to "Dasboard", "#", class: "nav-link" %>
         </li>
         <li class="nav-item">
           <%= link_to "Messages", "#", class: "nav-link" %>
         </li>
         <li class="nav-item">
-          <%= link_to "Subjects", "#", class: "nav-link" %>
+          <%= link_to "Calendar", "#", class: "nav-link" %>
         </li>
         <li class="nav-item">
-          <%= link_to "Dasboard", "#", class: "nav-link" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "Inbox", "#", class: "nav-link" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "Classroom", "#", class: "nav-link" %>
+          <%= link_to "Campus", "#", class: "nav-link" %>
         </li>
         <li class="nav-item dropdown">
           <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
