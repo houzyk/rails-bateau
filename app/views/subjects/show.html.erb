@@ -4,6 +4,7 @@
   <% @subject.chapters.each do |chapter| %>
     <div>
       <%= chapter.title %> | <%= chapter.description %>
+      <%= link_to 'Go to chapter', subject_chapter_path(@subject, chapter) %>
       <%= link_to 'Edit', edit_chapter_path(chapter) %>
       <%= link_to 'Delete', chapter_path(chapter), method: :delete, data: {confirm: 'Are you sure'}  %>
     </div>

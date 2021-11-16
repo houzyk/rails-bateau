@@ -1,19 +1,21 @@
 class MaterialsController < ApplicationController
-  def show
-    @material = Material.find(params[:chapter_id])
-    authorize @material
-  end
+  # def show
+  #   @material = Material.find(params[:material_id])
+  #   authorize @material
+  # end
 
   def new
     @subject = Subject.find(params[:subject_id])
+    @chapter = Chapter.find(params[:chapter_id])
     @material = Material.new
     authorize @material
   end
 
   def create
-    @material = Material.new(chapter_params)
+    @material = Material.new(material_params)
     @subject = Subject.find(params[:subject_id])
-    @material.subject = @subject
+    @chapter = Chapter.find(params[:chapter_id])
+    @material.chapter = @chapter
     if @material.save
       redirect_to subject_path(@subject)
     else
@@ -29,8 +31,8 @@ class MaterialsController < ApplicationController
 
   def update
     @material = Material.find(params[:id])
-    if @material.update(chapter_params)
-      redirect_to subject_path(@material.subject)
+    if @material.update(material_params)
+      redirect_to subject_path(@material.chapter.subject)
     else
       render :edit
     end
@@ -40,13 +42,13 @@ class MaterialsController < ApplicationController
   def destroy
     @material = Material.find(params[:id])
     # ! INSERT AN IF TO CHECK FOR POTENTIAL ERROS
-    redirect_to subject_path(@material.subject) if @material.destroy
+    redirect_to subject_path(@material.chapter.subject) if @material.destroy
     authorize @material
   end
 
   private
 
-  def chapter_params
-    params.require(:material).permit(:title, :description, :subject_id)
+  def material_params
+    params.require(:material).permit(:name, :subject_id, :chapter_id)
   end
 end

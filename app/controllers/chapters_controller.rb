@@ -1,6 +1,6 @@
 class ChaptersController < ApplicationController
   def show
-    @chapter = Chapter.find(params[:chapter_id])
+    @chapter = Chapter.find(params[:id])
     authorize @chapter
   end
 
