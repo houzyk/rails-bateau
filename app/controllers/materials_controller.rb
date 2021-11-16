@@ -32,7 +32,7 @@ class MaterialsController < ApplicationController
   def update
     @material = Material.find(params[:id])
     if @material.update(material_params)
-      redirect_to subject_path(@material.chapter.subject)
+      redirect_to subject_chapter_path(@material.chapter.subject, @material.chapter)
     else
       render :edit
     end
@@ -42,7 +42,7 @@ class MaterialsController < ApplicationController
   def destroy
     @material = Material.find(params[:id])
     # ! INSERT AN IF TO CHECK FOR POTENTIAL ERROS
-    redirect_to subject_path(@material.chapter.subject) if @material.destroy
+    redirect_to subject_chapter_path(@material.chapter.subject, @material.chapter) if @material.destroy
     authorize @material
   end
 

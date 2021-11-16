@@ -4,6 +4,8 @@
   <% @chapter.materials.each do |material| %>
     <div>
       <%= material.name %>
+      <%= link_to 'Edit', edit_material_path(material) %>
+      <%= link_to 'Delete', material_path(material), method: :delete, data: {confirm: 'Are you sure'}  %>
     </div>
   <% end %>
 </div>
