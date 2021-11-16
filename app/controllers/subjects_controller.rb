@@ -1,9 +1,10 @@
 class SubjectsController < ApplicationController
   def index
-    @subjects = Subject.all
+    @subjects = policy_scope(Subject)
   end
 
   def show
     @subject = Subject.find(params[:id])
+    authorize @subject
   end
 end
