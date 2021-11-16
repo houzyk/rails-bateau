@@ -2,3 +2,6 @@
   <h1><%= @subject.name %></h1>
   <h3><%= @subject.description %></h3>
 </div>
+
+<%= link_to 'Edit', edit_subject_path(@subject) %>
+<%= link_to 'Delete', subject_path(@subject), method: :delete, data: {confirm: 'Are you sure'} %>
