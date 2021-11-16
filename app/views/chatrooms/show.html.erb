@@ -1,4 +1,12 @@
 <div class="container">
+  <h1><%= @chatroom.name %></h1>
+  <ul>
+    <% @chatroom.messages.each do |message|%>
+      <li>
+        <%= message.content%> | <%= message.user.first_name%>
+      </li>
+    <% end %>
+  </ul>
   <%= simple_form_for [ @chatroom, @message ] do |f| %>
     <%= f.input :content, label: false, placeholder: "Message ##{@chatroom.name}" %>
     <%= f.submit%>
