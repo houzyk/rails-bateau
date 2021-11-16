@@ -4,12 +4,24 @@ class SubjectPolicy < ApplicationPolicy
       scope.all
     end
   end
-  
+
+  def index?
+    true
+  end
+
   def show?
     true
   end
-  
-  def index?
+
+  def create?
+    true
+  end
+
+  def update?
+    true
+  end
+
+  def destroy?
     true
   end
 end
