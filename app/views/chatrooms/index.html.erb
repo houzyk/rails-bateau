@@ -1,0 +1,4 @@
+<% @chatrooms.each do |chatroom| %>
+  <%= chatroom.name%>
+  <%= link_to "Go to Chatroom", chatroom_path(chatroom) %>
+<% end %>
