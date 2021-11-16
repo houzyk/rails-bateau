@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_15_124259) do
+ActiveRecord::Schema.define(version: 2021_11_16_114010) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,15 +41,6 @@ ActiveRecord::Schema.define(version: 2021_11_15_124259) do
     t.bigint "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
-  end
-
-  create_table "calendars", force: :cascade do |t|
-    t.bigint "schedule_id", null: false
-    t.bigint "user_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["schedule_id"], name: "index_calendars_on_schedule_id"
-    t.index ["user_id"], name: "index_calendars_on_user_id"
   end
 
   create_table "categories", force: :cascade do |t|
@@ -106,6 +97,8 @@ ActiveRecord::Schema.define(version: 2021_11_15_124259) do
     t.date "date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id", null: false
+    t.index ["user_id"], name: "index_schedules_on_user_id"
   end
 
   create_table "subjects", force: :cascade do |t|
@@ -134,13 +127,12 @@ ActiveRecord::Schema.define(version: 2021_11_15_124259) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "calendars", "schedules"
-  add_foreign_key "calendars", "users"
   add_foreign_key "chapters", "subjects"
   add_foreign_key "classrooms", "subjects"
   add_foreign_key "classrooms", "users"
   add_foreign_key "materials", "chapters"
   add_foreign_key "messages", "chatrooms"
   add_foreign_key "messages", "users"
+  add_foreign_key "schedules", "users"
   add_foreign_key "subjects", "categories"
 end

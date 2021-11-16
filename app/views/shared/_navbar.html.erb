@@ -1,5 +1,5 @@
 <div class="navbar navbar-expand-sm navbar-dark bg-dark navbar-lewagon">
-  <%= link_to "#", class: "navbar-brand" do %>
+  <%= link_to root_path, class: "navbar-brand" do %>
     <div id="logo">
       <div id="frame">
         <div id="wave"></div>
@@ -20,10 +20,13 @@
           <%= link_to "Dasboard", "#", class: "nav-link" %>
         </li>
         <li class="nav-item">
+          <%= link_to "Subjects", subjects_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
           <%= link_to "Messages", chatrooms_path, class: "nav-link" %>
         </li>
         <li class="nav-item">
-          <%= link_to "Calendar", "#", class: "nav-link" %>
+          <%= link_to "Calendar", schedules_path, class: "nav-link" %>
         </li>
         <li class="nav-item">
           <%= link_to "Campus", "#", class: "nav-link" %>

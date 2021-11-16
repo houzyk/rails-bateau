@@ -1,6 +1,6 @@
 require "test_helper"
 
-class CalendarTest < ActiveSupport::TestCase
+class ChaptersControllerTest < ActionDispatch::IntegrationTest
   # test "the truth" do
   #   assert true
   # end

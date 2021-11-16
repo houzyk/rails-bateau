@@ -1,0 +1,8 @@
+<div class="container">
+  <div class="form-item">
+    <%= simple_form_for ([@subject, @chapter, @material]) do |f| %>
+      <%= f.input :name %>
+      <%= f.submit %>
+    <% end %>
+  </div>
+</div>

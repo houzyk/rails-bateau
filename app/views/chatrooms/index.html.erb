@@ -1,4 +1,42 @@
-<% @chatrooms.each do |chatroom| %>
-  <%= chatroom.name%>
-  <%= link_to "Go to Chatroom", chatroom_path(chatroom) %>
-<% end %>
+<div class="container my-4">
+  <% @chatrooms.each do |chatroom| %>
+    <div>
+      <%= chatroom.name%>
+      <%= link_to "Go to Chatroom", chatroom_path(chatroom) %>
+    </div>
+  <% end %>
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#newUserModal">
+    Create a Chatroom
+  </button>
+</div>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="newUserModal" tabindex="-1" aria-labelledby="newUserModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="newUserModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <% @users.each do |user| %>
+          <div>
+            <%= user.first_name %>
+            <%= simple_form_for(@chatroom) do |f| %>
+              <%= f.input :name %>
+              <%= f.submit class:'btn btn-primary' %>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

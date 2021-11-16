@@ -1,4 +1,4 @@
-class SubjectPolicy < ApplicationPolicy
+class SchedulePolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       scope.all
@@ -6,10 +6,6 @@ class SubjectPolicy < ApplicationPolicy
   end
 
   def index?
-    true
-  end
-
-  def show?
     true
   end
 

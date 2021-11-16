@@ -1,4 +1,18 @@
 <div class="container">
   <h1><%= @subject.name %></h1>
   <h3><%= @subject.description %></h3>
+  <% @subject.chapters.each do |chapter| %>
+    <div>
+      <%= chapter.title %> | <%= chapter.description %>
+      <%= link_to 'Go to chapter', subject_chapter_path(@subject, chapter) %>
+      <%= link_to 'Edit', edit_chapter_path(chapter) %>
+      <%= link_to 'Delete', chapter_path(chapter), method: :delete, data: {confirm: 'Are you sure'}  %>
+    </div>
+  <% end %>
+  <div>
+    <%= link_to 'Create A Chapter', new_subject_chapter_path(@subject) %>
+    <%= link_to 'Edit', edit_subject_path(@subject) %>
+    <%= link_to 'Delete', subject_path(@subject), method: :delete, data: {confirm: 'Are you sure'} %>
+  </div>
+  <%= link_to 'Back', subjects_path %>
 </div>
