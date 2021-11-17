@@ -12,8 +12,9 @@
 
 <div class="container">
   <% @chapter.materials.each do |material| %>
-    <div>
-      <%= material.name %>
+    <div class="my-4 shadow-sm p-3 mb-5 bg-white rounded">
+      <h3><%= material.name %></h3>
+      <%= material.content %>
       <%= link_to 'Edit', edit_material_path(material) %>
       <%= link_to 'Delete', material_path(material), method: :delete, data: {confirm: 'Are you sure'}  %>
     </div>
