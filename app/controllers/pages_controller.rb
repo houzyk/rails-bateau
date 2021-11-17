@@ -5,5 +5,6 @@ class PagesController < ApplicationController
   end
 
   def campus
+    @users = User.all
   end
 end

@@ -1,0 +1,16 @@
+<div class="container my-4">
+  <% @users.each do |user| %>
+    <div class="card-user">
+      <% if user.photo.attached?%>
+        <%= cl_image_tag user.photo.key, gravity: :face, crop: :thumb  %>
+      <% else %>
+        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+      <% end %>
+      <div class="card-user-infos">
+        <h2><%= user.first_name %> <%= user.last_name %></h2>
+        <% word = user.teacher? ? "teacher" : "student"%>
+        <p>Contact your fellow <%= word %>: <strong><%= user.email %></strong></p>
+      </div>
+    </div>
+  <% end %>
+</div>
