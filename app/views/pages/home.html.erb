@@ -1,6 +1,21 @@
 <% if user_signed_in? %>
 
-  
+  <div class="container">
+    <div class="row">
+
+      <div class="col-sm-4">
+        <div class="student-card">
+          <%= image_tag "https://kitt.lewagon.com/placeholder/users/arthur-littm", class: "avatar-large mx-auto", alt: "avatar-large" %>
+        </div>
+      </div>
+
+      <div class="col-sm-8">
+        <div class="subject-cards">
+        </div>
+      </div>
+
+    </div>
+  </div>
 
 <% else %>
   <div class="d-flex vh-100">
@@ -13,11 +28,5 @@
       </div>
     </div>
   </div>
+  <%= render 'shared/footer' %>
 <% end %>
-
-
-
-
-
-
-<%= render 'shared/footer' %>
