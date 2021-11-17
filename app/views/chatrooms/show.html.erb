@@ -1,5 +1,5 @@
-<div class="container">
-  <h1><%= @chatroom.name %></h1>
+<div class="container my-4">
+  <h1><%= link_to "Back", chatrooms_path, class:'btn btn-success' %> <%= @chatroom.name %></h1>
   <div id="messages" data-chatroom-id="<%= @chatroom.id%>">
       <% @chatroom.messages.each do |message|%>
         <div id="message-<%= message.id%>"
@@ -14,9 +14,12 @@
         </div>
       <% end %>
   </div>
-    <%= simple_form_for [ @chatroom, @message ], remote: true do |f| %>
-      <%= f.input :content, label: false, placeholder: "Message ##{@chatroom.name}" %>
-      <%= f.submit%>
-    <% end %>
-  <%= link_to "Go Back", chatrooms_path, class:'btn btn-success' %>
+</div>
+<div class="container fixed-bottom bg-light">
+  <%= simple_form_for [ @chatroom, @message ], remote: true do |f| %>
+    <%= f.input :content, label: false, placeholder: "Message ##{@chatroom.name}" %>
+    <div class="text-right">
+      <%= f.submit class:"btn btn-primary"%>
+    </div>
+  <% end %>
 </div>
