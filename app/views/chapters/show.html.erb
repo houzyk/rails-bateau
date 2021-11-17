@@ -1,18 +1,16 @@
 <div class="jumbotron container my-4 position-relative">
-  <%= link_to subjects_path, class:'position-absolute', id:'back' do%>
+  <%= link_to subject_path(@chapter.subject), class:'position-absolute', id:'back' do%>
     <i class="far fa-arrow-alt-circle-left"></i>
   <% end %>
   <h1 class="display-4"><%= @chapter.title %></h1>
   <p class="lead"><%= @chapter.description %></p>
   <hr class="my-4">
-  <%= link_to 'Add a new material', new_subject_chapter_material_path(@chapter.subject, @chapter),class:"btn btn-primary btn-lg" %>
-  <%= link_to 'Edit chapter', edit_chapter_path(@chapter), class:"btn btn-primary btn-lg" %>
-  <%= link_to 'Delete', chapter_path(@chapter), method: :delete, data: {confirm: 'Are you sure'}, class:"btn btn-primary btn-lg"  %>
+  <%= link_to 'Add a new material', new_subject_chapter_material_path(@chapter.subject, @chapter),class:"btn btn-primary rounded-pill" %>
+  <%= link_to 'Edit chapter', edit_chapter_path(@chapter), class:"btn btn-primary rounded-pill" %>
+  <%= link_to 'Delete', chapter_path(@chapter), method: :delete, data: {confirm: 'Are you sure'}, class:"btn btn-danger rounded-pill"  %>
 </div>
 
 <div class="container">
-  <h2><%= @chapter.title %></h2>
-  <p><%= @chapter.description %></p>
   <% @chapter.materials.each do |material| %>
     <div>
       <%= material.name %>

@@ -5,8 +5,8 @@
   <h1 class="display-4"><%= @subject.name %></h1>
   <p class="lead"><%= @subject.description %></p>
   <hr class="my-4">
-  <%= link_to 'Create A Chapter', new_subject_chapter_path(@subject),class:"btn btn-primary btn-lg" %>
-  <%= link_to 'Edit', edit_subject_path(@subject),class:"btn btn-primary btn-lg" %>
-  <%= link_to 'Delete', subject_path(@subject), method: :delete, data: {confirm: 'Are you sure'},class:"btn btn-primary btn-lg" %>
+  <%= link_to 'Create A Chapter', new_subject_chapter_path(@subject),class:"btn btn-primary rounded-pill" %>
+  <%= link_to 'Edit', edit_subject_path(@subject),class:"btn btn-primary rounded-pill" %>
+  <%= link_to 'Delete', subject_path(@subject), method: :delete, data: {confirm: 'Are you sure'},class:"btn btn-danger rounded-pill" %>
 </div>
 <%= render 'shared/chapteraccordion' %>
