@@ -11,9 +11,9 @@
         >
           <div
             <% if current_user == message.user %>
-              class="message-box-current-user"
+              class="message-box-current-user bg-dark text-light"
             <% else %>
-              class="message-box-other-user"
+              class="message-box-other-user bg-light"
             <% end %>
           >
             <h5><%= message.user.first_name%></h5>
