@@ -31,7 +31,9 @@
             </div>
           </div>
         <% else %>
+          <%= link_to subject_chapter_path(@subject, chapter) do %>
           <i class="fas fa-arrow-circle-right"></i>
+          <% end %>
         <% end %>
 
 
