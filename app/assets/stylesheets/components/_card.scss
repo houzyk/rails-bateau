@@ -33,7 +33,7 @@
 .subject-cards {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-gap: 16px;
+  grid-gap: 36px;
 }
 
 // Smallest device
@@ -74,7 +74,8 @@
 .subject-card {
   background-size: cover;
   background-position: center;
-  height: 250px;
+  background-color: rgb(30, 30, 30);
+  height: 270px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -82,6 +83,23 @@
   font-size: 24px;
   font-weight: bold;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  border-radius: 5px;
+  border-radius: 10px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  position: relative;
+}
+
+.subject-title {
+  background-color: rgb(160, 160, 160);
+  height: 28%;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.subject-card i {
+  position: absolute;
+  top: 20px;
+  right: 20px;
 }
