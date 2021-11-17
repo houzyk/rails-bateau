@@ -5,9 +5,19 @@
 
       <div class="col-12 col-md-4">
         <div class="student-card">
-          <%= image_tag "https://kitt.lewagon.com/placeholder/users/arthur-littm", class: "avatar-large mx-auto", alt: "avatar-large" %><br><br>
-          <h3 class="text-center"><%= @user.first_name %> <%= @user.last_name %></h3>
-          <p class="text-center"><%= Date.today.strftime("%a, %e %b %Y") %></p>
+          <%= image_tag "https://kitt.lewagon.com/placeholder/users/arthur-littm", class: "avatar-large mx-auto", alt: "avatar-large" %>
+          <div class="text-center mt-4">
+            <h3><%= @user.first_name %> <%= @user.last_name %></h3>
+            <p><%= Date.today.strftime("%a, %e %b %Y") %></p>
+          </div>
+          <div class="schedule-card container">
+            <div class="schedule-cards">
+              <p><%= Date.today.strftime("%a, %e %b %Y") %></p>
+            </div>
+            <div class="schedule-cards">
+              <p><%= Date.tomorrow.strftime("%a, %e %b %Y") %></p>
+            </div>
+          </div>
         </div>
       </div>
 

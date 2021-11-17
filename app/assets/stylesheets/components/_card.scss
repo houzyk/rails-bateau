@@ -4,4 +4,28 @@
   width: 100%;
   margin-top: 80px;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+}
+
+.schedule-card {
+  background-color: whitesmoke;
+  width: 85%;
+  height: 270px;
+  border-radius: 5px;
+}
+
+.schedule-cards {
+  width: 95%;
+  height: 80px;
+  margin: 15px auto;
+  background-color: white;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+  font-size: small;
+  text-align: center;
+  border-radius: 3px;
 }
