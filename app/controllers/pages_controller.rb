@@ -3,4 +3,8 @@ class PagesController < ApplicationController
 
   def home
   end
+
+  def campus
+    @users = User.all
+  end
 end

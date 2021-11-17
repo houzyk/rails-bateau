@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
+  get 'campus', to: 'pages#campus'
   resources :subjects do
     resources :chapters, except: %i[destroy edit update index] do
       resources :materials, except: %i[destroy edit update index]
