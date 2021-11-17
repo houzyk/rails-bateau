@@ -14,12 +14,18 @@
           </div>
           <div class="schedule-card container">
             <h5 class="text-center">Reminders</h5>
-            <div class="schedule-cards">
-              <p><%= Date.today.strftime("%a, %e %b %Y") %></p>
-            </div>
-            <div class="schedule-cards">
-              <p><%= Date.today.strftime("%a, %e %b %Y") %></p>
-            </div>
+            <% if @schedules.empty? %>
+              <div class="schedule-cards-empty">
+                <p>Nothing to do yet. Have a break!</p>
+              </div>
+            <% else %>
+              <% @schedules.first(2).each do |schedule| %>
+                <div class="schedule-cards">
+                  <p><%= schedule.date  %></p>
+                  <p><%= schedule.content  %></p>
+                </div>
+              <% end %>
+            <% end %>
           </div>
         </div>
       </div>
