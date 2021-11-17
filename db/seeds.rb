@@ -36,8 +36,30 @@ end
 # puts "Creating 2 subject2"
 # subject1 = Subject.new(name: "Math", description: "Math is fun")
 # subject2 = Subject.new(name: "Chemistry", description: "Chemistry is fun")
+# subject3 = Subject.new(name: "Art & Design", description: "Art is fun")
+# subject4 = Subject.new(name: "Physical Education", description: "Physical Education is fun")
+# subject5 = Subject.new(name: "Economics", description: "Economics is fun")
+# subject6 = Subject.new(name: "Society & Culture", description: "Society & Culture is fun")
+# subject7 = Subject.new(name: "French", description: "French is fun")
+# subject8 = Subject.new(name: "History", description: "History is fun")
+# subject9 = Subject.new(name: "Geography", description: "Geography is fun")
 
-# subject1.category = category1
-# subject2.category = category2
+# subject1.category = Category.find_by(name: "Science")
+# subject2.category = Category.find_by(name: "Science")
+# subject3.category = Category.find_by(name: "Art")
+# subject4.category = Category.find_by(name: "Sport")
+# subject5.category = Category.find_by(name: "Economics")
+# subject6.category = Category.find_by(name: "Society & Culture")
+# subject7.category = Category.find_by(name: "Literature")
+# subject8.category = Category.find_by(name: "History")
+# subject9.category = Category.find_by(name: "Geography")
+
 # subject1.save
 # subject2.save
+# subject3.save
+# subject4.save
+# subject5.save
+# subject6.save
+# subject7.save
+# subject8.save
+# subject9.save
