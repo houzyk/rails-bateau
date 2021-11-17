@@ -1,9 +1,10 @@
 class ChaptersController < ApplicationController
   after_action :authorize_chapter
   before_action :set_chapter, only: %i[show edit update destroy]
-  before_action :set_subject, only: %i[new create]
+  before_action :set_subject, only: %i[new create show]
 
-  def show; end
+  def show
+  end
 
   def new
     @chapter = Chapter.new

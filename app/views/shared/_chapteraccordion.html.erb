@@ -1,0 +1,40 @@
+<div class="accordion w-25 ml-4 mb-4" id="accordionExample" >
+  <h2>Chapters</h2>
+  <% @subject.chapters.each do |chapter| %>
+  <div class="card" style="overflow:visible;">
+    <div class="card-header" id="heading<%= chapter.id%>">
+      <h2 class="mb-0 d-flex">
+        <span class="btn btn-link flex-grow-1 text-left collapsed" type="span" data-toggle="collapse" data-target="#collapse<%= chapter.id%>" aria-expanded="false" aria-controls="collapse<%= chapter.id%>">
+          <%= chapter.title %>
+        </span>
+        <span>
+
+        <% if current_user.teacher %>
+          <div class="dropdown dropright">
+          <i class="fas fa-bars " id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false"></i>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <%= link_to 'Go to chapter', subject_chapter_path(@subject, chapter), class:"dropdown-item" %>
+              <%= link_to 'Edit', edit_chapter_path(chapter), class:"dropdown-item" %>
+              <%= link_to 'Delete', chapter_path(chapter), method: :delete, data: {confirm: 'Are you sure'}, class:"dropdown-item"  %>
+            </div>
+          </div>
+        <% else %>
+          <%= link_to subject_chapter_path(@subject, chapter) do %>
+          <i class="fas fa-arrow-circle-right"></i>
+          <% end %>
+        <% end %>
+
+
+
+        </span>
+      </h2>
+    </div>
+    <div id="collapse<%= chapter.id%>" class="collapse" aria-labelledby="heading<%= chapter.id%>" data-parent="#accordionExample">
+      <div class="card-body">
+        <%= chapter.description %>
+        <br>
+        <%= link_to "Go to chapter", subject_chapter_path(@subject, chapter), class:"btn btn-sm btn-primary btn-block mt-3 rounded-pill"%>
+      </div>
+  </div>
+  <% end %>
+</div>
