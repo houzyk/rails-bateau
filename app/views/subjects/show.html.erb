@@ -10,4 +10,8 @@
   <%= link_to 'Delete', subject_path(@subject), method: :delete, data: {confirm: 'Are you sure'},class:"btn btn-danger rounded-pill" %>
 </div>
 
-  <%= render 'shared/chapteraccordion' %>
+<div id="grid">
+  <div class="accordion ml-4 mb-4" id="accordionExample" >
+    <%= render 'shared/chapteraccordion' %>
+  </div>
+</div>

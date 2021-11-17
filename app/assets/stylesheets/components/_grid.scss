@@ -1,0 +1,11 @@
+#grid{
+  display: grid;
+  grid-template-columns: 1.2fr 3fr;
+  gap: 1rem;
+  width: 85vw;
+  #accordionExample{
+    position: sticky;
+    top: 5vh;
+    height: 80vh;
+  }
+}
