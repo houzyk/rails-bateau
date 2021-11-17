@@ -15,6 +15,10 @@
 <div class="container">
   <%= month_calendar do |date| %>
     <%= date.day %>
-    
+    <% @schedules.each do |schedule| %>
+      <% if date == schedule.date %>
+        <div><small><%= schedule.content %></small></div>
+      <% end %>
+    <% end %>
   <% end %>
 </div>
