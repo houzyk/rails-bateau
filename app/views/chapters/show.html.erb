@@ -10,7 +10,10 @@
   <%= link_to 'Delete', chapter_path(@chapter), method: :delete, data: {confirm: 'Are you sure'}, class:"btn btn-danger rounded-pill"  %>
 </div>
 
-<div class="container">
+
+<%= render 'shared/chapteraccordion' %>
+
+<div id = "materials">
   <% @chapter.materials.each do |material| %>
     <div class="my-4 shadow-sm p-3 mb-5 bg-white rounded">
       <h3><%= material.name %></h3>
@@ -23,4 +26,5 @@
   <%= link_to 'Back', subject_path(@chapter.subject) %>
 </div>
 
-<%= render 'shared/chapteraccordion' %>
+
+
