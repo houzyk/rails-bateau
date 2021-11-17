@@ -3,13 +3,15 @@
   <div class="container">
     <div class="row">
 
-      <div class="col-sm-4">
+      <div class="col-12 col-md-4">
         <div class="student-card">
-          <%= image_tag "https://kitt.lewagon.com/placeholder/users/arthur-littm", class: "avatar-large mx-auto", alt: "avatar-large" %>
+          <%= image_tag "https://kitt.lewagon.com/placeholder/users/arthur-littm", class: "avatar-large mx-auto", alt: "avatar-large" %><br><br>
+          <h3 class="text-center"><%= @user.first_name %> <%= @user.last_name %></h3>
+          <p class="text-center"><%= Date.today.strftime("%a, %e %b %Y") %></p>
         </div>
       </div>
 
-      <div class="col-sm-8">
+      <div class="col-12 col-md-8">
         <div class="subject-cards">
         </div>
       </div>
