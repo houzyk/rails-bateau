@@ -1,4 +1,4 @@
-<div class="accordion w-25 ml-4 mb-4" id="accordionExample" >
+
   <h2>Chapters</h2>
   <% @subject.chapters.each do |chapter| %>
   <div class="card" style="overflow:visible;">
@@ -8,10 +8,9 @@
           <%= chapter.title %>
         </span>
         <span>
-
         <% if current_user.teacher %>
           <div class="dropdown dropright">
-          <i class="fas fa-bars " id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false"></i>
+            <i class="fas fa-bars" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false"></i>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
               <%= link_to 'Go to chapter', subject_chapter_path(@subject, chapter), class:"dropdown-item" %>
               <%= link_to 'Edit', edit_chapter_path(chapter), class:"dropdown-item" %>
@@ -24,8 +23,6 @@
           <% end %>
         <% end %>
 
-
-
         </span>
       </h2>
     </div>
@@ -37,4 +34,9 @@
       </div>
   </div>
   <% end %>
+
+
+
+<div class="accordion ml-4 mb-4" id="accordionExample" >
 </div>
+

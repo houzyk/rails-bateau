@@ -9,9 +9,28 @@
   <%= link_to 'Edit chapter', edit_chapter_path(@chapter), class:"btn btn-primary rounded-pill" %>
   <%= link_to 'Delete', chapter_path(@chapter), method: :delete, data: {confirm: 'Are you sure'}, class:"btn btn-danger rounded-pill"  %>
 </div>
+<div class="accordion ml-4 mb-4" id="accordionExample" >
+  <h2>Chapters</h2>
+  <% @subject.chapters.each do |chapter| %>
+    <div class="card" style="overflow:visible;">
+      <div class="card-header" id="heading<%= chapter.id%>">
+        <h2 class="mb-0 d-flex">
+          <span class="btn btn-link flex-grow-1 text-left collapsed" type="span" data-toggle="collapse" data-target="#collapse<%= chapter.id%>" aria-expanded="false" aria-controls="collapse<%= chapter.id%>"><%= chapter.title %>
+          </span>
+          <span>
+            <% if current_user.teacher %>
+              <i class="fas fa-bars"></i>
+            <% else %>
+              <i class="fas fa-arrow-circle-right"></i>
+            <% end %>
+          </span>
+        </h2>
+      </div>
+    </div>
+  <% end %>
+</div>
 
-
-<%= render 'shared/chapteraccordion' %>
+        <h4><%=  %></h4>
 
 <div id = "materials">
   <% @chapter.materials.each do |material| %>
@@ -22,9 +41,4 @@
       <%= link_to 'Delete', material_path(material), method: :delete, data: {confirm: 'Are you sure'}  %>
     </div>
   <% end %>
-  <%= link_to 'Add Material', new_subject_chapter_material_path(@chapter.subject, @chapter) %>
-  <%= link_to 'Back', subject_path(@chapter.subject) %>
 </div>
-
-
-
