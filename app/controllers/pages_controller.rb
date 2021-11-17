@@ -4,4 +4,8 @@ class PagesController < ApplicationController
   def home
     @subjects = Subject.all
   end
+
+  def campus
+    @users = User.all
+  end
 end
