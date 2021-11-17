@@ -1,11 +1,49 @@
-<div class="d-flex vh-100">
-  <div class="container my-auto">
-    <h2 class="font-weight-bold text-center">Welcome to Bateau</h2>
-    <br>
-    <div class="text-center">
-      <%= link_to "Enter as a Student", root_path, class: "btn btn-primary" %>
-      <span> or </span><%= link_to "as a Teacher", root_path, class: "font-weight-bold" %>
+<% if user_signed_in? %>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-md-4">
+        <div class="student-card">
+          <%= image_tag "https://kitt.lewagon.com/placeholder/users/arthur-littm", class: "avatar-large mx-auto", alt: "avatar-large" %>
+          <div class="text-center mt-4">
+            <h3><%= current_user.first_name %> <%= current_user.last_name %></h3>
+            <p><%= Date.today.strftime("%a, %e %b %Y") %></p>
+          </div>
+          <div class="schedule-card container">
+            <div class="schedule-cards">
+              <p><%= Date.today.strftime("%a, %e %b %Y") %></p>
+            </div>
+            <div class="schedule-cards">
+              <p><%= Date.tomorrow.strftime("%a, %e %b %Y") %></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-8">
+        <div class="subject-cards">
+          <% @subjects.each do |subject| %>
+            <div class="subject-card">
+              <i class="fas fa-bars"></i>
+              <div class="subject-title px-3">
+                <h3><%= subject.name %></h3>
+                <h4><%= subject.category.name %></h4>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
     </div>
   </div>
-</div>
-<%= render 'shared/footer' %>
+<% else %>
+  <div class="d-flex vh-100">
+    <div class="container my-auto">
+      <h2 class="font-weight-bold text-center">Welcome to Bateau</h2>
+      <br>
+      <div class="text-center">
+        <%= link_to "Enter as a Student", root_path, class: "btn btn-primary" %>
+        <span> or </span><%= link_to "as a Teacher", root_path, class: "font-weight-bold" %>
+      </div>
+    </div>
+  </div>
+  <%= render 'shared/footer' %>
+<% end %>
