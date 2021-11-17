@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row">
       <div class="col-12 col-md-4">
-        <div class="student-card">
+        <div class="student-card bg-light">
           <% if current_user.photo.attached? %>
             <%= cl_image_tag current_user.photo.key, crop: :thumb, gravity: :face, class:"avatar-large mx-auto", alt: "avatar-large" %>
           <% else %>
@@ -10,14 +10,11 @@
           <% end %>
           <div class="text-center mt-4">
             <h3><%= current_user.first_name %> <%= current_user.last_name %></h3>
-            <p><%= Date.today.strftime("%a, %e %b %Y") %></p>
+            <p><i class="fas fa-calendar-week"></i> <%= Date.today.strftime("%a, %e %b %Y") %></p>
           </div>
           <div class="schedule-card container">
             <div class="schedule-cards">
               <p><%= Date.today.strftime("%a, %e %b %Y") %></p>
-            </div>
-            <div class="schedule-cards">
-              <p><%= Date.tomorrow.strftime("%a, %e %b %Y") %></p>
             </div>
           </div>
         </div>
