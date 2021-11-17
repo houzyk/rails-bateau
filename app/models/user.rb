@@ -11,4 +11,5 @@ class User < ApplicationRecord
   # has_many :subjects_as_student, through: :classrooms, source: :subjects
   has_many :classrooms
   has_many :subjects, through: :classrooms
+  has_one_attached :photo
 end
