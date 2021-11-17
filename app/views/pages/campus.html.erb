@@ -1,4 +1,6 @@
 <div class="container">
+<p>Number of teachers: <%= @count_teachers%></p>
+<p>Number of students: <%= @count_students%></p>
   <% @users.each do |user| %>
     <% if user != current_user %>
       <div class="card-user my-4">
