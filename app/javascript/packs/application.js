@@ -20,6 +20,8 @@ ActiveStorage.start()
 
 // External imports
 import "bootstrap";
+import "trix";
+import "@rails/actiontext";
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
@@ -30,3 +32,6 @@ document.addEventListener('turbolinks:load', () => {
   // initSelect2();
   initChatroomCable();
 });
+
+require("trix")
+require("@rails/actiontext")
