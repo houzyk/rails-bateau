@@ -16,10 +16,11 @@
             <h5 class="text-center">Reminders</h5>
             <% if @schedules.empty? %>
               <div class="schedule-cards-empty">
-                <p>Nothing to do yet. Have a break!</p>
+                <i class="fas fa-smile-wink"></i>
+                <p>Nothing to do yet!</p>
               </div>
             <% else %>
-              <% @schedules.first(2).each do |schedule| %>
+              <% @schedules.reverse.first(2).each do |schedule| %>
                 <div class="schedule-cards">
                   <p><%= schedule.date  %></p>
                   <p><%= schedule.content  %></p>
