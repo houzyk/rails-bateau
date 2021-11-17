@@ -1,11 +1,13 @@
 class SchedulesController < ApplicationController
+  before_action :set_schedule, only: %i[edit update destroy]
+  after_action :authorize_schedule, except: :index
+
   def index
     @schedules = policy_scope(Schedule)
   end
 
   def new
     @schedule = Schedule.new
-    authorize @schedule
   end
 
   def create
@@ -16,31 +18,31 @@ class SchedulesController < ApplicationController
     else
       render :new
     end
-    authorize @schedule
   end
 
-  def edit
-    @schedule = Schedule.find(params[:id])
-    authorize @schedule
-  end
+  def edit; end
 
   def update
-    @schedule = Schedule.find(params[:id])
     @schedule.update(schedule_params)
     redirect_to schedules_path
-    authorize @schedule
   end
 
   def destroy
-    @schedule = Schedule.find(params[:id])
     @schedule.destroy
     redirect_to schedules_path
-    authorize @schedule
   end
 
   private
 
   def schedule_params
     params.require(:schedule).permit(:content, :date, :public)
+  end
+
+  def authorize_schedule
+    authorize @schedule
+  end
+
+  def set_schedule
+    @schedule = Schedule.find(params[:id])
   end
 end
