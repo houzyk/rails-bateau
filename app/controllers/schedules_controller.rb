@@ -29,6 +29,7 @@ class SchedulesController < ApplicationController
 
   def destroy
     @schedule.destroy
+    redirect_to schedules_path
   end
 
   private
