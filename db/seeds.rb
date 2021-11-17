@@ -7,16 +7,23 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-# puts "Destroying previous database"
-# Category.destroy_all
-# Subject.destroy_all
+puts "Destroying previous database"
+Subject.destroy_all
+Category.destroy_all
 # User.destroy_all
 
 # puts "Seeding database..."
 
-# puts "Creating categories..."
-# category1 = Category.create!(name: "Science")
-# category2 = Category.create!(name: "Mathematical Science")
+puts "Creating categories..."
+
+categories = ["Science", "Art", "History", "Geography", "Literature", "Music", "Sport", "Culture", "Economics"]
+# creating a category for each element of the array
+categories.each do |category|
+  Category.create(name: category)
+end
+
+# puts "Creating users..."
+# creating an array of users
 
 # puts "Creating 1 teacher"
 # teacher = User.create!(email: "teacher@test.com", password: "password", first_name: "Teacher", last_name: "Test", teacher: true)
