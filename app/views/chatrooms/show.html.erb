@@ -1,4 +1,4 @@
-<div class="container my-4">
+<div class="container messages">
   <h1><%= link_to "Back", chatrooms_path, class:'btn btn-success' %> <%= @chatroom.name %></h1>
   <div id="messages" data-chatroom-id="<%= @chatroom.id%>">
       <% @chatroom.messages.each do |message|%>
