@@ -1,27 +1,27 @@
 <div class="container messages">
   <h1><%= link_to "Back", chatrooms_path, class:'btn btn-success' %> <%= @chatroom.name %></h1>
   <div id="messages" data-chatroom-id="<%= @chatroom.id%>">
-      <% @chatroom.messages.each do |message|%>
-        <div id="message-<%= message.id%>"
+    <% @chatroom.messages.each do |message|%>
+      <div id="message-<%= message.id%>"
+        <% if current_user == message.user %>
+          class="d-flex justify-content-end"
+        <% else %>
+          class="d-flex justify-content-start"
+        <% end %>
+      >
+        <div
           <% if current_user == message.user %>
-            class="d-flex justify-content-end"
+            class="message-box-current-user bg-dark text-light"
           <% else %>
-            class="d-flex justify-content-start"
+            class="message-box-other-user bg-light"
           <% end %>
         >
-          <div
-            <% if current_user == message.user %>
-              class="message-box-current-user bg-dark text-light"
-            <% else %>
-              class="message-box-other-user bg-light"
-            <% end %>
-          >
-            <h5><%= message.user.first_name%></h5>
-            <p><%= message.content%></p>
-            <small><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
-          </div>
+          <h5><%= message.user.first_name%></h5>
+          <p><%= message.content%></p>
+          <small><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
         </div>
-      <% end %>
+      </div>
+    <% end %>
   </div>
 </div>
 
