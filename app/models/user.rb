@@ -13,4 +13,11 @@ class User < ApplicationRecord
   has_many :participants
   has_many :subjects, through: :classrooms
   has_one_attached :photo
+
+  include PgSearch::Model
+  pg_search_scope :campus_search,
+                  against: %i[email first_name last_name],
+                  using: {
+                    tsearch: { prefix: true }
+                  }
 end
