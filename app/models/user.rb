@@ -12,4 +12,6 @@ class User < ApplicationRecord
   has_many :classrooms
   has_many :subjects, through: :classrooms
   has_one_attached :photo
+
+
 end

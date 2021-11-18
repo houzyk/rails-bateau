@@ -4,6 +4,11 @@ class SchedulesController < ApplicationController
 
   def index
     @schedules = policy_scope(Schedule)
+      if params[:query].present?
+        @schedules = @schedules.search_by_content(params[:query])
+      else
+        @schedules
+      end
   end
 
   def new
