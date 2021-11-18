@@ -1,4 +1,14 @@
 <div class="container">
+  <div class="search-bar form-inline mt-4 mb-4">
+    <%= form_tag schedules_path, method: :get do %>
+      <%= text_field_tag :query,
+      params[:query],
+      class: "form-control",
+      placeholder: "Search"
+      %>
+      <%= submit_tag "Search", class: "btn btn-primary" %>
+    <% end %>
+  </div>
   <ul>
     <% @schedules.each do |schedule|%>
       <li>
