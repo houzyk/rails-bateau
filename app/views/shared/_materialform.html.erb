@@ -2,7 +2,11 @@
   <div class="form-item">
     <%= simple_form_for ([@subject, @chapter, @material]) do |f| %>
       <%= f.input :name %>
+      <%= f.input :content, as: :rich_text_area %>
       <%= f.submit %>
     <% end %>
   </div>
 </div>
+
+
+
