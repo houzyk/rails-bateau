@@ -1,7 +1,3 @@
-.messages{
-  margin-bottom: 20vh;
-}
-
 .message-box-current-user {
   border-radius: 10px;
   margin: 10px 0;
@@ -16,6 +12,10 @@
   width: 35vw;
 }
 .chat-form{
-  height: 20vh;
+  height: 15vh;
+  overflow: scroll;
+}
+#messages{
+  max-height: 60vh;
   overflow: scroll;
 }
