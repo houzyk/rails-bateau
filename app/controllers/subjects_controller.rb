@@ -4,7 +4,7 @@ class SubjectsController < ApplicationController
 
   def index
     if params[:query].present?
-      @subjects = policy_scope(Subject).subject_search("#{params[:query]}")
+      @subjects = policy_scope(Subject).subject_search(params[:query])
     else
       @subjects = policy_scope(Subject)
     end
