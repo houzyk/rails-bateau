@@ -16,12 +16,7 @@
       </li>
     <% end %>
   </ul>
-
-  <%= link_to "Create a New Schedule", new_schedule_path %>
 </div>
-
-<br>
-<br>
 <div class="container">
   <%= month_calendar do |date| %>
     <%= date.day %>
@@ -32,3 +27,5 @@
     <% end %>
   <% end %>
 </div>
+
+<%= link_to "Create a New Schedule", new_schedule_path %>
