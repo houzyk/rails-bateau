@@ -1,5 +1,37 @@
 .simple-calendar {
-  .day {}
+  .table{
+    th{
+      text-align: center;
+    }
+  }
+
+  .calendar-heading{
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    a {
+      color: white;
+      padding: 8px 24px;
+      border-radius: 4px;
+      background: #1EDD88;
+      text-decoration: none;
+      transition: background 0.3s ease;
+    }
+    a:hover{
+      background: #1BCB7F;
+      color: white;
+    }
+  }
+
+  .calendar-title{
+    font-size: 30px;
+    opacity: 0.7;
+    font-weight: 600;
+  }
+
+  .day {
+  }
 
   .wday-0 {}
   .wday-1 {}
@@ -20,4 +52,8 @@
   .current-month {}
 
   .has-events {}
+
+  .event{
+    background-color: #1BCB7F;
+  }
 }

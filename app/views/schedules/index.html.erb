@@ -27,7 +27,7 @@
     <%= date.day %>
     <% @schedules.each do |schedule| %>
       <% if date == schedule.date %>
-        <div><small><%= schedule.content %></small></div>
+        <div class="event"><small><%= schedule.content %></small></div>
       <% end %>
     <% end %>
   <% end %>
