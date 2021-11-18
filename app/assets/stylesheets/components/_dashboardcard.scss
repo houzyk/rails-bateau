@@ -1,5 +1,4 @@
 .student-card {
-  background-color: lightgray;
   height: 475px;
   width: 100%;
   margin-top: 80px;
@@ -13,21 +12,33 @@
 }
 
 .schedule-card {
-  background-color: whitesmoke;
   width: 85%;
   height: 270px;
   border-radius: 5px;
 }
 
 .schedule-cards {
-  width: 95%;
+  width: 100%;
   height: 80px;
   margin: 15px auto;
   background-color: white;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
   font-size: small;
   text-align: center;
-  border-radius: 3px;
+  border-radius: 5px;
+}
+
+.schedule-cards-empty {
+  width: 100%;
+  height: 200px;
+  margin: 15px auto;
+  text-align: center;
+  border-radius: 5px;
+  i{
+    font-size: 125px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    color: #2EC4B6;
+  }
 }
 
 .subject-cards {

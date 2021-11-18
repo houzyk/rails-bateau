@@ -1,6 +1,11 @@
 <div class="navbar navbar-expand-sm navbar-dark bg-dark navbar-lewagon">
   <%= link_to root_path, class: "navbar-brand" do %>
-    <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
+    <div id="logo">
+      <div id="frame">
+        <div id="wave"></div>
+        <div id="boat"></div>
+      </div>
+    </div>
   <% end %>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -11,8 +16,8 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
-        <li class="nav-item active">
-          <%= link_to "Dashboard", "#", class: "nav-link" %>
+        <li class="nav-item">
+          <%= link_to "Dashboard", root_path, class: "nav-link" %>
         </li>
         <li class="nav-item">
           <%= link_to "Subjects", subjects_path, class: "nav-link" %>
