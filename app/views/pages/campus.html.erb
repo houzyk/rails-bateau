@@ -14,7 +14,9 @@
           <h2><%= user.first_name %> <%= user.last_name %> | <%= word %></h2>
           <p><strong><%= user.email %></strong></p>
         </div>
-          <%= link_to 'Contact', "#", class:"btn btn-primary teacher-contact"%>
+        <% if policy(Chatroom).new? %>
+          <%= link_to 'Contact', new_chatroom_path(user), class:"btn btn-primary teacher-contact"%>
+        <% end %>
       </div>
     <% end %>
   <% end %>
