@@ -3,7 +3,11 @@ class SubjectsController < ApplicationController
   after_action :authrozie_subject, except: :index
 
   def index
-    @subjects = policy_scope(Subject)
+    if params[:query].present?
+      @subjects = policy_scope(Subject).subject_search(params[:query])
+    else
+      @subjects = policy_scope(Subject)
+    end
   end
 
   def show; end
