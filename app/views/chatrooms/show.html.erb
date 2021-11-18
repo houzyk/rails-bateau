@@ -1,5 +1,6 @@
 <div class="container messages">
-  <h1><%= link_to "Back", chatrooms_path, class:'btn btn-success' %> <%= @chatroom.name %></h1>
+  <% participant = @chatroom.participants.reject{ |participant| participant.user == current_user }%>
+  <h1><%= link_to "Back", chatrooms_path, class:'btn btn-success' %> <%= participant.first.user.first_name%> <%= participant.first.user.last_name%></h1>
   <div id="messages" data-chatroom-id="<%= @chatroom.id%>">
     <% @chatroom.messages.each do |message|%>
       <div id="message-<%= message.id%>"
@@ -27,7 +28,7 @@
 
 <div class="container fixed-bottom bg-light">
   <%= simple_form_for [ @chatroom, @message ], remote: true do |f| %>
-    <%= f.input :content, label: false, placeholder: "Message ##{@chatroom.name}" %>
+    <%= f.input :content, label: false, placeholder: "Message #{participant.first.user.first_name} #{participant.first.user.last_name}" %>
     <div class="text-right">
       <%= f.submit class:"btn btn-primary"%>
     </div>
