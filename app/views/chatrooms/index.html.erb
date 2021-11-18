@@ -1,9 +1,17 @@
 <div class="container my-4">
   <% @chatrooms.each do |chatroom| %>
-    <div>
-      <% participant = chatroom.participants.reject{ |participant| participant.user == current_user }%>
-      <%= participant.first.user.first_name%> <%= participant.first.user.last_name%>
-      <%= link_to "Go to Chatroom", chatroom_path(chatroom) %>
+    <% participant = chatroom.participants.reject{ |participant| participant.user == current_user }%>
+    <div class="card-user my-4">
+      <% if participant.first.user.photo.attached?%>
+        <%= cl_image_tag participant.first.user.photo.key, gravity: :face, crop: :thumb  %>
+      <% else %>
+        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+      <% end %>
+      <div class="card-user-infos">
+        <h2><%= participant.first.user.first_name%> <%= participant.first.user.last_name%></h2>
+        <p><strong><%= participant.first.user.email %></strong></p>
+      </div>
+      <%= link_to 'Go To Chat', chatroom_path(chatroom), class:"btn btn-primary teacher-contact"%>
     </div>
   <% end %>
 </div>
