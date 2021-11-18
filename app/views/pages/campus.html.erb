@@ -1,6 +1,20 @@
 <div class="container">
-<p>Number of teachers: <%= @count_teachers%></p>
-<p>Number of students: <%= @count_students%></p>
+  <div class="mt-4 mb-4 d-flex">
+    <div>
+      <%= form_tag subjects_path, method: :get do %>
+        <%= text_field_tag :query,
+          params[:query],
+          class: "form-control",
+          placeholder: "Find a teacher/student"
+        %>
+    </div>
+    <div>
+      <%= submit_tag "Search", class: "btn btn-primary" %>
+    </div>
+    <% end %>
+  </div>
+<h2>Number of teachers: <%= @count_teachers%></h2>
+<h3>Number of students: <%= @count_students%></h3>
   <% @users.each do |user| %>
     <% if user != current_user %>
       <div class="card-user my-4">
