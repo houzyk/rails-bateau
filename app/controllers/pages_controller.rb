@@ -8,15 +8,17 @@ class PagesController < ApplicationController
 
   def campus
     @users = User.except(@current_user)
-    @students = @users.where(teacher: false)
-    @count_students = @students.count
-    @teachers = @users.where(teacher: true)
-    @count_teachers = @teachers.count
-
     if params[:query].present?
-      @users = User.campus_search(params[:query])
+      @users = @users.campus_search(params[:query])
+      @students = @users.where(teacher: false)
+      @count_students = @students.count
+      @teachers = @users.where(teacher: true)
+      @count_teachers = @teachers.count
     else
-      @users = User.all
+      @students = @users.where(teacher: false)
+      @count_students = @students.count
+      @teachers = @users.where(teacher: true)
+      @count_teachers = @teachers.count
     end
   end
 end
