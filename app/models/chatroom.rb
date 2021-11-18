@@ -1,5 +1,5 @@
 class Chatroom < ApplicationRecord
-  has_many :participants, dependent: :destroy # ! NEW
+  has_many :participants, dependent: :destroy
 
   has_many :messages
   has_many :users, through: :messages
