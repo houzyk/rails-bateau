@@ -13,7 +13,7 @@
     </div>
     <% end %>
   </div>
-  <h1>Subject List</h1>
+  <h2>Number of Subjects: <%= @subjects.count %></h2>
   <%= link_to "Create a subject", new_subject_path, class: "btn-primary btn-lg" %>
   <div class="cards">
     <% @subjects.each do |subject| %>
