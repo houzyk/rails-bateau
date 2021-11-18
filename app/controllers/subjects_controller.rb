@@ -3,7 +3,19 @@ class SubjectsController < ApplicationController
   after_action :authrozie_subject, except: :index
 
   def index
-    @subjects = policy_scope(Subject)
+    if params[:query].present?
+      @subjects = policy_scope(Subject).global_search("#{params[:query]}")
+     # sql_query = " \
+     #   subjects.name ILIKE :query \
+     #   OR subjects.description ILIKE :query \
+     #   OR categories.name ILIKE :query \
+     #   OR chapters.title ILIKE :query \
+     #   OR chapters.description ILIKE :query \
+     # "
+     # @subjects = policy_scope(Subject).joins(:category, :chapters).where(sql_query, query: "%#{params[:query]}%")
+    else
+      @subjects = policy_scope(Subject)
+    end
   end
 
   def show; end
