@@ -1,4 +1,6 @@
 class Chatroom < ApplicationRecord
+  has_many :participants, dependent: :destroy # ! NEW
+
   has_many :messages
   has_many :users, through: :messages
   validates_uniqueness_of :name
@@ -9,7 +11,7 @@ class Chatroom < ApplicationRecord
   def self.create_private_room(users, room_name)
     single_room = Chatroom.create(name: room_name, isprivate: true)
     users.each do |user|
-      Participant.create(user_id: user.id, room_id: single_room.id )
+      Participant.create(user_id: user.id, chatroom_id: single_room.id)
     end
     single_room
   end
