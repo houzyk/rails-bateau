@@ -5,9 +5,10 @@ class ChatroomsController < ApplicationController
     @chatrooms = policy_scope(Chatroom)
     @chatroom = Chatroom.new
     @users = User.all
+    # ! NEW
     @current_user = current_user
-    @rooms = Room.public_rooms
-    @users = User.all_except(@current_user)
+    @rooms = Chatroom.public_rooms
+    @users = User.except(@current_user)
   end
 
   def show

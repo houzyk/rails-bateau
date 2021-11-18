@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_18_082307) do
+ActiveRecord::Schema.define(version: 2021_11_18_085343) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -103,6 +103,15 @@ ActiveRecord::Schema.define(version: 2021_11_18_082307) do
     t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
+  create_table "participants", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "chatroom_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["chatroom_id"], name: "index_participants_on_chatroom_id"
+    t.index ["user_id"], name: "index_participants_on_user_id"
+  end
+
   create_table "schedules", force: :cascade do |t|
     t.text "content"
     t.boolean "public"
@@ -146,6 +155,8 @@ ActiveRecord::Schema.define(version: 2021_11_18_082307) do
   add_foreign_key "materials", "chapters"
   add_foreign_key "messages", "chatrooms"
   add_foreign_key "messages", "users"
+  add_foreign_key "participants", "chatrooms"
+  add_foreign_key "participants", "users"
   add_foreign_key "schedules", "users"
   add_foreign_key "subjects", "categories"
 end
