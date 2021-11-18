@@ -2,7 +2,6 @@ class Message < ApplicationRecord
   belongs_to :user
   belongs_to :chatroom
   validates :content, presence: true
-  # ! NEW
   before_create :confirm_participant
 
   def confirm_participant

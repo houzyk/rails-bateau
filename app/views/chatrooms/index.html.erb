@@ -2,7 +2,7 @@
   <% @chatrooms.each do |chatroom| %>
     <div>
       <% participant = chatroom.participants.reject{ |participant| participant.user == current_user }%>
-      <%= participant.first.user.first_name%>
+      <%= participant.first.user.first_name%> <%= participant.first.user.last_name%>
       <%= link_to "Go to Chatroom", chatroom_path(chatroom) %>
     </div>
   <% end %>
@@ -11,8 +11,6 @@
     Create a Chatroom
   </button>
 </div>
-
-
 
 <!-- Modal -->
 <div class="modal fade" id="newUserModal" tabindex="-1" aria-labelledby="newUserModalLabel" aria-hidden="true">
