@@ -1,0 +1,106 @@
+.student-card {
+  background-color: lightgray;
+  height: 475px;
+  width: 100%;
+  margin-top: 80px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+}
+
+.schedule-card {
+  background-color: whitesmoke;
+  width: 85%;
+  height: 270px;
+  border-radius: 5px;
+}
+
+.schedule-cards {
+  width: 95%;
+  height: 80px;
+  margin: 15px auto;
+  background-color: white;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+  font-size: small;
+  text-align: center;
+  border-radius: 3px;
+}
+
+.subject-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 36px;
+  margin-top: 80px;
+}
+
+// Smallest device
+@media (min-width: 100px) and (max-width: 575px) {
+  .subject-cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+  .subject-cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+  .subject-cards {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+  .subject-cards {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+  .subject-cards {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.subject-card {
+  background-size: cover;
+  background-position: center;
+  background-color: rgb(30, 30, 30);
+  height: 270px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  position: relative;
+}
+
+.subject-title {
+  background-color: rgb(160, 160, 160);
+  height: 28%;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.subject-card i {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}

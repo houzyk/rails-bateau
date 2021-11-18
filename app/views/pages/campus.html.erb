@@ -1,0 +1,21 @@
+<div class="container">
+<p>Number of teachers: <%= @count_teachers%></p>
+<p>Number of students: <%= @count_students%></p>
+  <% @users.each do |user| %>
+    <% if user != current_user %>
+      <div class="card-user my-4">
+        <% if user.photo.attached?%>
+          <%= cl_image_tag user.photo.key, gravity: :face, crop: :thumb  %>
+        <% else %>
+          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+        <% end %>
+        <div class="card-user-infos">
+          <% word = user.teacher? ? "Teacher" : "Student"%>
+          <h2><%= user.first_name %> <%= user.last_name %> | <%= word %></h2>
+          <p><strong><%= user.email %></strong></p>
+        </div>
+          <%= link_to 'Contact', "#", class:"btn btn-primary teacher-contact"%>
+      </div>
+    <% end %>
+  <% end %>
+</div>
