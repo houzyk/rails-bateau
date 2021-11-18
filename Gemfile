@@ -33,6 +33,7 @@ gem 'devise'
 gem 'actiontext', '~> 6.1', '>= 6.1.4.1'
 gem 'autoprefixer-rails', '10.2.5'
 gem 'font-awesome-sass'
+gem 'pg_search', '~> 2.3.0'
 gem "simple_calendar", "~> 2.4"
 gem 'simple_form'
 gem 'pundit'
