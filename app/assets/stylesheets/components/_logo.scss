@@ -1,9 +1,9 @@
 // adding root variable
 :root {
-  --factor: 0.4;
 }
 
 #logo{
+  --factor: 0.2;
   height: calc(var(--factor) * 15em);
   width: calc(var(--factor) * 15em);
 }
