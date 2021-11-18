@@ -12,5 +12,11 @@ class PagesController < ApplicationController
     @count_students = @students.count
     @teachers = @users.where(teacher: true)
     @count_teachers = @teachers.count
+
+    if params[:query].present?
+      @users = User.campus_search(params[:query])
+    else
+      @users = User.all
+    end
   end
 end
