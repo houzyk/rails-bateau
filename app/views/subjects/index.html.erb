@@ -1,4 +1,18 @@
 <div class="container">
+  <div class="mt-4 mb-4 d-flex">
+    <div>
+      <%= form_tag subjects_path, method: :get do %>
+        <%= text_field_tag :query,
+          params[:query],
+          class: "form-control",
+          placeholder: "Find a subject"
+        %>
+    </div>
+    <div>
+      <%= submit_tag "Search", class: "btn btn-primary" %>
+    </div>
+    <% end %>
+  </div>
   <h1>Subject List</h1>
   <%= link_to "Create a subject", new_subject_path, class: "btn-primary btn-lg" %>
   <div class="cards">
@@ -13,4 +27,3 @@
     <% end %>
   </div>
 </div>
-
