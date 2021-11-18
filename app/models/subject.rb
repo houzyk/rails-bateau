@@ -6,7 +6,7 @@ class Subject < ApplicationRecord
   has_many :users, through: :classrooms
 
   include PgSearch::Model
-  pg_search_scope :global_search,
+  pg_search_scope :subject_search,
     against: [:name, :description],
     associated_against: {
       category: [:name],

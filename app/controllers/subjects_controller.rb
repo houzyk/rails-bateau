@@ -4,15 +4,7 @@ class SubjectsController < ApplicationController
 
   def index
     if params[:query].present?
-      @subjects = policy_scope(Subject).global_search("#{params[:query]}")
-     # sql_query = " \
-     #   subjects.name ILIKE :query \
-     #   OR subjects.description ILIKE :query \
-     #   OR categories.name ILIKE :query \
-     #   OR chapters.title ILIKE :query \
-     #   OR chapters.description ILIKE :query \
-     # "
-     # @subjects = policy_scope(Subject).joins(:category, :chapters).where(sql_query, query: "%#{params[:query]}%")
+      @subjects = policy_scope(Subject).subject_search("#{params[:query]}")
     else
       @subjects = policy_scope(Subject)
     end
