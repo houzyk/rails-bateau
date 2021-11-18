@@ -1,5 +1,6 @@
 <div class="container messages">
-  <h1><%= link_to "Back", chatrooms_path, class:'btn btn-success' %> <%= @chatroom.name %></h1>
+  <% participant = @chatroom.participants.reject{ |participant| participant.user == current_user }%>
+  <h1><%= link_to "Back", chatrooms_path, class:'btn btn-success' %> <%= participant.first.user.first_name%></h1>
   <div id="messages" data-chatroom-id="<%= @chatroom.id%>">
     <% @chatroom.messages.each do |message|%>
       <div id="message-<%= message.id%>"
