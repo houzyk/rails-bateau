@@ -30,10 +30,22 @@ margin-top: 8px;
 
 .card-product .card-product-infos {
 padding: 16px;
+width: 100%;
+position: relative;
 }
 
 .cards {
 display: grid;
 grid-template-columns: 1fr;
 grid-gap: 16px;
+}
+
+.card-product-infos .btn {
+  position: absolute;
+  bottom: 22px;
+  right: 30px;
+}
+
+.card-product-infos h2 {
+  font-size: 16px;
 }
