@@ -27,6 +27,7 @@
   align-items: center;
   padding: 15px;
   margin-bottom: 10px;
+  border-radius: 10px;
   i{
     font-size: 30px;
     color: #2EC4B6;
@@ -70,6 +71,7 @@
   grid-template-columns: 1fr 1fr;
   grid-gap: 36px;
   margin-top: 80px;
+  margin-bottom: 80px;
 }
 
 // Smallest device
@@ -144,4 +146,9 @@
   position: absolute;
   left: 20px;
   bottom: 20px;
+}
+
+.student-card-wrapper{
+  position: sticky;
+  top: 165px;
 }
