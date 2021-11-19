@@ -2,16 +2,46 @@
   <%= link_to subjects_path, class:'position-absolute', id:'back' do%>
     <i class="far fa-arrow-alt-circle-left"></i>
   <% end %>
-  <h1 class="display-4"><%= @subject.name %></h1>
-  <p class="lead"><%= @subject.description %></p>
+  <h1 class="display-4"><%= @subject.name %> </h1>
+  <p class="lead"><%= @subject.description %> </p>
   <hr class="my-4">
-  <%= link_to 'Create A Chapter', new_subject_chapter_path(@subject),class:"btn btn-primary rounded-pill" %>
-  <%= link_to 'Edit', edit_subject_path(@subject),class:"btn btn-primary rounded-pill" %>
-  <%= link_to 'Delete', subject_path(@subject), method: :delete, data: {confirm: 'Are you sure'},class:"btn btn-danger rounded-pill" %>
+
+  <% if current_user.teacher %>
+    <%= link_to 'Create A Chapter', new_subject_chapter_path(@subject),class:"btn btn-primary rounded" %>
+    <%= link_to 'Edit', edit_subject_path(@subject),class:"btn btn-info rounded" %>
+    <%= link_to 'Delete', subject_path(@subject), method: :delete, data: {confirm: 'Are you sure'},class:"btn btn-danger rounded" %>
+  <% end %>
 </div>
 
+<div class="container my-5 chapter-container shadow p-5">
+  <h3><%= pluralize(@subject.chapters.count, "chapter") %> </h3>
+  <hr>
+  <% @subject.chapters.each do |chapter| %>
+    <h2><%= chapter.title %></h2>
+
+
+
+
+    <p class="text-justify"><%= chapter.description %></p>
+    <%= link_to "Go to Chapter", subject_chapter_path(@subject, chapter), class:"btn btn-sm btn-primary mt-3 rounded px-4"%>
+    <% if current_user.teacher %>
+        <%= link_to "Edit Chapter", edit_chapter_path(chapter), class:"btn btn-sm btn-info mt-3 rounded px-4" %>
+
+        <%= link_to "Delete Chapter", chapter_path(chapter), method: :delete, data: {confirm: 'Are you sure'}, class:"btn btn-sm btn-danger mt-3 rounded px-4"%>
+      <% end %>
+    <hr>
+  <% end %>
+
+</div>
+
+
+
+
+
+<!--
 <div id="grid">
   <div class="accordion ml-4 mb-4" id="accordionExample" >
     <%= render 'shared/chapteraccordion' %>
   </div>
 </div>
+-->
