@@ -14,7 +14,7 @@
           <% if current_user == message.user %>
             class="message-box-current-user bg-dark text-light"
           <% else %>
-            class="message-box-other-user bg-light"
+            class="message-box-other-user bg-info"
           <% end %>
         >
           <h5><%= message.user.first_name%></h5>
@@ -26,7 +26,7 @@
   </div>
 </div>
 
-<div class="container fixed-bottom bg-light">
+<div class="container fixed-bottom bg-transparent text-dark">
   <%= simple_form_for [ @chatroom, @message ], remote: true do |f| %>
     <%= f.rich_text_area :content,
       input_html: {max_rows: "5"},
@@ -34,7 +34,7 @@
                 placeholder: "Message #{participant.first.user.first_name} #{participant.first.user.last_name}",
                 class:"chat-form" %>
     <div class="text-right">
-      <%= f.submit class:"btn btn-primary"%>
+      <%= f.submit class:"btn btn-primary mt-2 mb-3"%>
     </div>
   <% end %>
 </div>
