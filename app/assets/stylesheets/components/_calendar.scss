@@ -27,10 +27,15 @@
   .calendar-title{
     font-size: 30px;
     opacity: 0.7;
-    font-weight: 600;
+    font-weight: 900;
   }
 
   .day {
+    border: 0px;
+    text-align: center;
+    line-height: 80px;
+    font-size: 25px;
+    font-weight: 600;
   }
 
   .wday-0 {}
@@ -41,7 +46,8 @@
   .wday-5 {}
   .wday-6 {}
 
-  .today {}
+  .today {
+  }
   .past {}
   .future {}
 
@@ -54,6 +60,6 @@
   .has-events {}
 
   .event{
-    background-color: #1BCB7F;
+    color: #1BCB7F;
   }
 }

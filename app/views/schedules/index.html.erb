@@ -19,10 +19,11 @@
 </div>
 <div class="container">
   <%= month_calendar do |date| %>
-    <%= date.day %>
     <% @schedules.each do |schedule| %>
       <% if date == schedule.date %>
-        <div class="event"><small><%= schedule.content %></small></div>
+        <div class="event" data-toggle="modal" data-target="#exampleModal"><%= date.day %></div>
+      <% else %>
+        <%= date.day %>
       <% end %>
     <% end %>
   <% end %>
