@@ -12,10 +12,19 @@
   width: 35vw;
 }
 .chat-form{
-  height: 15vh;
+  height: 12vh;
   overflow: scroll;
 }
 #messages{
   max-height: 60vh;
   overflow: scroll;
+}
+
+.text-box {
+  position: relative;
+  top: 20px;
+}
+
+.text-create {
+  font-weight: 700;
 }
