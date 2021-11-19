@@ -15,19 +15,44 @@
   width: 85%;
   height: 270px;
   border-radius: 5px;
+  padding: 0;
 }
 
-.schedule-cards {
-  width: 100%;
-  height: 80px;
-  margin: 15px auto;
-  background-color: white;
-  font-size: small;
-  text-align: center;
-  border-radius: 5px;
+.card-calendar-dashboard {
+  overflow: hidden;
+  height: 100px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  i{
+    font-size: 30px;
+    color: #2EC4B6;
+  }
 }
 
-.schedule-cards-empty {
+.card-calendar-dashboard h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-calendar-dashboard p {
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+}
+
+.card-calendar-dashboard .card-calendar-dashboard-infos {
+  padding: 16px;
+}
+
+.card-calendar-dashboard-empty {
   width: 100%;
   height: 200px;
   margin: 15px auto;
@@ -46,6 +71,7 @@
   grid-template-columns: 1fr 1fr;
   grid-gap: 36px;
   margin-top: 80px;
+  margin-bottom: 80px;
 }
 
 // Smallest device
@@ -90,7 +116,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  color: white;
   font-size: 24px;
   font-weight: bold;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
@@ -100,17 +125,30 @@
 }
 
 .subject-title {
-  background-color: rgb(160, 160, 160);
+  background-color: white;
   height: 28%;
   width: 100%;
   position: absolute;
   bottom: 0;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
+  h4 {
+    position: absolute;
+    left: 70px;
+    bottom: 20px;
+  }
 }
 
-.subject-card i {
+.tag-subject{
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
   position: absolute;
-  top: 20px;
-  right: 20px;
+  left: 20px;
+  bottom: 20px;
+}
+
+.student-card-wrapper{
+  position: sticky;
+  top: 165px;
 }

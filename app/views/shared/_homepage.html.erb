@@ -1,10 +1,8 @@
 <div class="mt-4 d-flex align-items-center">
-  <div class="jumbotron col-8 mx-auto shadow-sm" id='homepage'>
-    <h1 class="display-4 font-weight-bold">Welcome to Bateau</h1>
-    <p class="lead">The latest and more innovative e-learning platform</p>
-    <hr class="my-4">
-    <p class="text-center"><%= link_to "Enter as a Student", root_path, class: "btn btn-primary" %>
-      <span> or </span><%= link_to "as a Teacher", root_path, class: "font-weight-bold" %></p>
+  <div class="jumbotron col-8 mx-auto" id='homepage'>
+    <h1 class="font-weight-bold text-center mb-4">Welcome to Bateau</h1>
+    <p class="text-center"><%= link_to "Enter as a Student", new_user_session_path, class: "btn btn-primary" %>
+      <span> or </span><%= link_to "as a Teacher", new_user_session_path, class: "font-weight-bold" %></p>
   </div>
 </div>
 
