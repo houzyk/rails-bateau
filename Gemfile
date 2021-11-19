@@ -32,6 +32,7 @@ gem 'devise'
 # ADDED GEMS
 gem 'actiontext', '~> 6.1', '>= 6.1.4.1'
 gem 'autoprefixer-rails', '10.2.5'
+gem 'faker', '~> 2.19'
 gem 'font-awesome-sass'
 gem 'pg_search', '~> 2.3.0'
 gem "simple_calendar", "~> 2.4"
