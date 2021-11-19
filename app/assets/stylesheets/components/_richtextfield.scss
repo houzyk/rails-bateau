@@ -1,4 +1,13 @@
 @charset "UTF-8";
+// ! Custom settings for rich text forms
+.material-form{
+  min-height: 20vh;
+  max-height: 55vh;
+  overflow: scroll;
+}
+
+
+
 
 trix-editor {
   border: 1px solid #bbb;
@@ -370,5 +379,3 @@ trix-editor .attachment__metadata {
     .trix-content .attachment-gallery.attachment-gallery--2 .attachment, .trix-content .attachment-gallery.attachment-gallery--4 .attachment {
       flex-basis: 50%;
       max-width: 50%; }
-
-
