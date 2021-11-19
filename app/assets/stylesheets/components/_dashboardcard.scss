@@ -114,7 +114,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  color: white;
   font-size: 24px;
   font-weight: bold;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
@@ -124,17 +123,25 @@
 }
 
 .subject-title {
-  // background-color: rgb(160, 160, 160);
+  background-color: white;
   height: 28%;
   width: 100%;
   position: absolute;
   bottom: 0;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
+  h4 {
+    position: absolute;
+    left: 70px;
+    bottom: 20px;
+  }
 }
 
-.subject-card i {
+.tag-subject{
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
   position: absolute;
-  top: 20px;
-  right: 20px;
+  left: 20px;
+  bottom: 20px;
 }
