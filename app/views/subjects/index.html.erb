@@ -18,7 +18,7 @@
   <div class="cards">
     <% @subjects.each do |subject| %>
       <div class="card-product">
-        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+        <%= cl_image_tag subject.category.photo.key, height: 300, width: 400, crop: :fill %>
         <div class="card-product-infos">
           <p class= "badge badge-success"> <%= subject.category.name%> </p>
           <%= link_to "Go to subject", subject_path(subject) %>
