@@ -1,5 +1,5 @@
 <div class="container my-4">
-  <h4>My Messages</h4>
+  <h4>You have <strong><%= @chatrooms.count %></strong> messages</h4>
   <% @chatrooms.each do |chatroom| %>
     <% participant = chatroom.participants.reject{ |participant| participant.user == current_user }%>
     <div class="card-user my-4">
