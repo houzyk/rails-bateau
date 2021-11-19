@@ -87,7 +87,6 @@
   }
 }
 
-
 .card-calendar {
   overflow: hidden;
   height: 120px;
@@ -129,6 +128,7 @@
 
 .create-schedule{
   position: sticky;
-  top: 4px;
+  top: 0px;
   z-index: 999;
+  width: 100%;
 }

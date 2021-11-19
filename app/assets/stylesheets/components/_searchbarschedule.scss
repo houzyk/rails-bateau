@@ -12,9 +12,11 @@
 }
 
 .search-bar-schedule .form-control {
-  height: 3.5rem;
+  height: 2.5rem;
   box-shadow: 0 2px 5px rgba(0,0,0,0.08);
   border: 1px solid #E7E7E7;
+  width: 100%;
+  display: inline-block;
 }
 
 .search-bar-schedule .form-control:focus {
