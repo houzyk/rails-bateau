@@ -74,3 +74,56 @@
     margin-top: 10px;
   }
 }
+
+.calendar-page{
+  display: flex;
+  .search-region{
+    height: 80vh;
+    width: 30%;
+    overflow: scroll;
+  }
+  .calendar-region{
+    width: 70%;
+    height: 80vh;
+  }
+}
+
+
+.card-calendar {
+  overflow: hidden;
+  height: 120px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+  position: relative;
+
+  .btn-info{
+    position: absolute;
+    right: 120px;
+  }
+
+  .btn-danger{
+    position: absolute;
+    right: 25px;
+  }
+}
+
+.card-calendar h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-calendar p {
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+}
+
+.card-calendar .card-calendar-infos {
+  padding: 16px;
+}
