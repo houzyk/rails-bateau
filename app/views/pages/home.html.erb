@@ -36,7 +36,7 @@
       <div class="col-12 col-md-8">
         <div class="subject-cards">
           <% @subjects.each do |subject| %>
-            <div class="subject-card">
+            <div class="subject-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path subject.category.photo.key, height: 300, crop: :fill %>')">
               <i class="fas fa-bars"></i>
               <div class="subject-title px-3">
                 <h3><%= subject.name %></h3>
