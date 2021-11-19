@@ -2,8 +2,8 @@
   <div class="form-item">
     <%= simple_form_for ([@subject, @chapter]) do |f| %>
       <%= f.input :title %>
-      <%= f.input :description %>
-      <%= f.submit %>
+      <%= f.input :description, input_html:{rows: 10} %>
+      <%= f.submit class:'btn btn-primary mt-2 btn-block' %>
     <% end %>
   </div>
 </div>
