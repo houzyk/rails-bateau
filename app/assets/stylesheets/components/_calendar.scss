@@ -126,3 +126,9 @@
 .card-calendar .card-calendar-infos {
   padding: 16px;
 }
+
+.create-schedule{
+  position: sticky;
+  top: 4px;
+  z-index: 999;
+}
