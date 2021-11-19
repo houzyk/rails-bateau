@@ -39,12 +39,14 @@
       <div class="col-12 col-md-8">
         <div class="subject-cards">
           <% @subjects.each do |subject| %>
-            <div class="subject-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path subject.category.photo.key, height: 300, crop: :fill %>')">
-              <div class="subject-title">
-                <div class="tag-subject <%= subject.category.name.downcase %>"></div>
-                <h4><%= subject.name %></h4>
+            <%= link_to subject_path(subject) do%>
+              <div class="subject-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path subject.category.photo.key, height: 300, crop: :fill %>')">
+                <div class="subject-title">
+                  <div class="tag-subject <%= subject.category.name.downcase %>"></div>
+                  <h4><%= subject.name %></h4>
+                </div>
               </div>
-            </div>
+            <% end %>
           <% end %>
         </div>
       </div>
