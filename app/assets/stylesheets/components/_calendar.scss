@@ -87,7 +87,6 @@
   }
 }
 
-
 .card-calendar {
   overflow: hidden;
   height: 120px;
@@ -125,4 +124,11 @@
 
 .card-calendar .card-calendar-infos {
   padding: 16px;
+}
+
+.create-schedule{
+  position: sticky;
+  top: 0px;
+  z-index: 999;
+  width: 100%;
 }

@@ -1,16 +1,22 @@
 <div class="calendar-page m-4">
   <div class="container search-region">
-    <div class="search-bar form-inline">
-      <%= form_tag schedules_path, method: :get do %>
-        <%= text_field_tag :query,
-        params[:query],
-        class: "form-control",
-        placeholder: "Search"
-        %>
-        <%= submit_tag "Search", class: "btn btn-primary" %>
-      <% end %>
+    <div class="create-schedule bg-light">
+      <div class="search-bar-schedule">
+        <%= form_tag schedules_path, method: :get do %>
+          <div>
+            <%= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+            placeholder: "Find A Schedule"
+            %>
+          </div>
+          <div>
+            <%= submit_tag "Search", class: "btn btn-info" %>
+          </div>
+        <% end %>
+      </div>
+      <%= link_to "Add", new_schedule_path, class: "btn btn-dark btn-block"%>
     </div>
-    <%= link_to "Create a New Schedule", new_schedule_path %>
     <% @schedules.each do |schedule|%>
       <div class="card-calendar">
         <div class="card-calendar-infos">
