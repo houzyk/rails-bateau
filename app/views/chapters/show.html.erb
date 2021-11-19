@@ -5,24 +5,35 @@
   <h1 class="display-4"><%= @chapter.title %></h1>
   <p class="lead"><%= @chapter.description %></p>
   <hr class="my-4">
-  <%= link_to 'Add a new material', new_subject_chapter_material_path(@chapter.subject, @chapter),class:"btn btn-primary rounded-pill" %>
-  <%= link_to 'Edit chapter', edit_chapter_path(@chapter), class:"btn btn-primary rounded-pill" %>
-  <%= link_to 'Delete', chapter_path(@chapter), method: :delete, data: {confirm: 'Are you sure'}, class:"btn btn-danger rounded-pill"  %>
+
+  <% if current_user.teacher %>
+    <%= link_to 'Add a new material', new_subject_chapter_material_path(@chapter.subject, @chapter),class:"btn btn-primary rounded" %>
+    <%= link_to 'Edit chapter', edit_chapter_path(@chapter), class:"btn btn-info rounded" %>
+    <%= link_to 'Delete', chapter_path(@chapter), method: :delete, data: {confirm: 'Are you sure'}, class:"btn btn-danger rounded"  %>
+  <% end %>
 </div>
 
+<div class="container chapter-container shadow p-5">
+  <h3>This chapter includes <%= pluralize(@chapter.materials.count, "topic") %> </h3>
+  <hr>
 
-<div id="grid">
+
+  <% @chapter.materials.each do |material| %>
+      <h2><%= material.name %></h2>
+
+      <%= material.content %>
+      <br>
+
+      <% if current_user.teacher %>
+        <%= link_to 'Edit Content', edit_material_path(material), class:'btn btn-info' %>
+        <%= link_to 'Delete Content', material_path(material), method: :delete, data: {confirm: 'Are you sure'}, class:'btn btn-danger'  %>
+      <% end %>
+
+      <hr>
+
+  <% end %>
+
   <div class="accordion ml-4 mb-4" id="accordionExample" >
     <%= render 'shared/chapteraccordion' %>
-  </div>
-  <div id = "materials">
-    <% @chapter.materials.each do |material| %>
-      <div class="my-4 shadow-sm p-3 mb-5 bg-white rounded">
-        <h3><%= material.name %></h3>
-        <%= material.content %>
-        <%= link_to 'Edit', edit_material_path(material) %>
-        <%= link_to 'Delete', material_path(material), method: :delete, data: {confirm: 'Are you sure'}  %>
-      </div>
-    <% end %>
   </div>
 </div>
