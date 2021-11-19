@@ -2,57 +2,39 @@
   <%= link_to subjects_path, class:'position-absolute', id:'back' do%>
     <i class="far fa-arrow-alt-circle-left"></i>
   <% end %>
-  <h1 class="display-4"><%= @subject.name %></h1>
-  <p class="lead"><%= @subject.description %></p>
+  <h1 class="display-4"><%= @subject.name %> </h1>
+  <p class="lead"><%= @subject.description %> </p>
   <hr class="my-4">
 
   <% if current_user.teacher %>
-    <%= link_to 'Create A Chapter', new_subject_chapter_path(@subject),class:"btn btn-primary rounded-pill" %>
-    <%= link_to 'Edit', edit_subject_path(@subject),class:"btn btn-primary rounded-pill" %>
-    <%= link_to 'Delete', subject_path(@subject), method: :delete, data: {confirm: 'Are you sure'},class:"btn btn-danger rounded-pill" %>
+    <%= link_to 'Create A Chapter', new_subject_chapter_path(@subject),class:"btn btn-primary rounded" %>
+    <%= link_to 'Edit', edit_subject_path(@subject),class:"btn btn-info rounded" %>
+    <%= link_to 'Delete', subject_path(@subject), method: :delete, data: {confirm: 'Are you sure'},class:"btn btn-danger rounded" %>
   <% end %>
 </div>
 
-
-
-<div class="container accordion my-5" id="accordionSubject">
+<div class="container my-5 chapter-container shadow p-5">
+  <h3><%= pluralize(@subject.chapters.count, "chapter") %> </h3>
+  <hr>
   <% @subject.chapters.each do |chapter| %>
+    <h2><%= chapter.title %></h2>
 
-    <div class="card">
-      <div class="card-header" id="heading<%= chapter.id %>">
-        <h2 class="mb-0 d-flex">
-              <span class="btn btn-link flex-grow-1 text-left collapsed" type="span" data-toggle="collapse" data-target="#collapse<%= chapter.id%>" aria-expanded="false" aria-controls="collapse<%= chapter.id%>">
-                <i class="fas fa-bars"></i> <%= chapter.title %>
-              </span>
-              <span>
-                <% if current_user.teacher %>
-                  <%= link_to edit_chapter_path(chapter) do %>
-                    <i class="fas fa-edit"></i>
-                  <% end %>
-                  <%= link_to chapter_path(chapter), method: :delete, data: {confirm: 'Are you sure'} do %>
-                    <i class="fas fa-trash-alt text-danger"></i>
-                  <% end %>
-                <% end %>
 
-                <%= link_to subject_chapter_path(@subject, chapter) do %>
-                <i class="fas fa-arrow-circle-right"></i>
-                <% end %>
-              </span>
-            </h2>
-      </div>
 
-      <div id="collapse<%= chapter.id %>" class="collapse" aria-labelledby="heading<%= chapter.id %>" data-parent="#accordionSubject">
-        <div class="card-body">
-        <h4><strong>Description:</strong></h3>
-          <%= chapter.description %>
-          <br>
-          <%= link_to "Go to chapter", subject_chapter_path(@subject, chapter), class:"btn btn-sm btn-primary btn-block mx-auto mt-3 rounded-pill w-50"%>
-        </div>
-      </div>
-    </div>
 
+    <p class="text-justify"><%= chapter.description %></p>
+    <%= link_to "Go to Chapter", subject_chapter_path(@subject, chapter), class:"btn btn-sm btn-primary mt-3 rounded px-4"%>
+    <% if current_user.teacher %>
+        <%= link_to "Edit Chapter", edit_chapter_path(chapter), class:"btn btn-sm btn-info mt-3 rounded px-4" %>
+
+        <%= link_to "Delete Chapter", chapter_path(chapter), method: :delete, data: {confirm: 'Are you sure'}, class:"btn btn-sm btn-danger mt-3 rounded px-4"%>
+      <% end %>
+    <hr>
   <% end %>
+
 </div>
+
+
 
 
 
