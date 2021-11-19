@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container my-4">
   <div class="search-bar form-inline mt-4 mb-4">
     <%= form_tag schedules_path, method: :get do %>
       <%= text_field_tag :query,
@@ -20,35 +20,35 @@
 <div class="container">
   <%= month_calendar do |date| %>
     <%= date.day %>
-      <div class="cal-events">
-        <% @schedules.each do |schedule| %>
-            <% if date == schedule.date %>
-              <!-- Schedule Modal Trigger -->
-              <div class="event" data-toggle="modal" data-target="#scheduleModal">
+    <div class="cal-events">
+      <% @schedules.each do |schedule| %>
+        <% if date == schedule.date %>
+          <!-- Schedule Modal Trigger -->
+          <div class="event" data-toggle="modal" data-target="#scheduleModal" >
+          </div>
+        <% end %>
+        <!-- Schedule Modal -->
+        <div class="modal fade" id="scheduleModal" tabindex="-1" role="dialog" aria-labelledby="scheduleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="scheduleModalLabel"><%= date %></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
               </div>
-            <% end %>
-          <!-- Schedule Modal -->
-          <div class="modal fade" id="scheduleModal" tabindex="-1" role="dialog" aria-labelledby="scheduleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="scheduleModalLabel"><%= date %></h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div class="modal-body">
-                  <%= schedule.content %>
-                </div>
-                <div class="modal-footer">
-                  <%= link_to 'Edit', edit_schedule_path(schedule), class:"btn btn-info" %>
-                  <%= link_to 'Delete', schedule_path(schedule), method: :delete, class: "btn btn-danger"%>
-                </div>
+              <div class="modal-body">
+                <%= schedule.content %>
+              </div>
+              <div class="modal-footer">
+                <%= link_to 'Edit', edit_schedule_path(schedule), class:"btn btn-info" %>
+                <%= link_to 'Delete', schedule_path(schedule), method: :delete, class: "btn btn-danger"%>
               </div>
             </div>
           </div>
-        <% end %>
-      </div>
+        </div>
+      <% end %>
+    </div>
   <% end %>
 </div>
 
