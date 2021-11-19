@@ -13,15 +13,16 @@
   </div>
   <div class="container d-flex justify-content-between align-items-center text-muted">
     <h4>Number of Subjects: <%= @subjects.count %></h4>
-    <%= link_to "Create a subject", new_subject_path, class: "btn-primary btn-lg text-decoration-none" %>
+    <%= link_to "Create a subject", new_subject_path, class: "btn-primary btn-lg text-decoration-none mb-2" %>
   </div>
   <div class="cards">
     <% @subjects.each do |subject| %>
       <div class="card-product">
         <%= cl_image_tag subject.category.photo.key, height: 300, width: 400, crop: :fill %>
         <div class="card-product-infos">
-          <p class= "badge badge-success"> <%= subject.category.name%> </p>
-          <%= link_to "Go to subject", subject_path(subject) %>
+          <h2 class="font-weight-bold"> <%= subject.name %> </h2>
+          <p class= "badge <%= subject.category.name.downcase %>"> <%= subject.category.name%> </p>
+          <%= link_to "Go to subject", subject_path(subject), class: "btn btn-primary" %>
         </div>
       </div>
     <% end %>
