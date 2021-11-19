@@ -61,8 +61,14 @@
 
   .has-events {}
 
+  .cal-events {
+    display: flex;
+  }
+
   .event{
-    color: #1BCB7F;
     cursor: pointer;
+    width: 10px;
+    height: 10px;
+    background-color: #1BCB7F;
   }
 }
