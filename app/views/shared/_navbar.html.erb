@@ -1,4 +1,4 @@
-<div class="navbar navbar-expand-sm navbar-dark bg-dark navbar-lewagon">
+<div class="navbar navbar-expand-sm navbar-dark bg-dark navbar-lewagon sticky-top">
   <%= link_to root_path, class: "navbar-brand d-flex align-items-center" do %>
     <div id="logo" class="mr-2">
       <div id="frame">
@@ -46,7 +46,7 @@
         </li>
       <% else %>
         <li class="nav-item">
-          <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+          <%= link_to "Sign Up", new_user_registration_path, class: "nav-link" %>
         </li>
       <% end %>
     </ul>
