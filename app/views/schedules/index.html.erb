@@ -36,15 +36,15 @@
         <% @schedules.each do |schedule| %>
           <% if date == schedule.date %>
             <!-- Schedule Modal Trigger -->
-            <div class="event" data-toggle="modal" data-target="#scheduleModal" >
+            <div class="event" data-toggle="modal" data-target="#scheduleModal-<%= schedule.id %>" >
             </div>
           <% end %>
           <!-- Schedule Modal -->
-          <div class="modal fade" id="scheduleModal" tabindex="-1" role="dialog" aria-labelledby="scheduleModalLabel" aria-hidden="true">
+          <div class="modal fade" id="scheduleModal-<%= schedule.id %>" tabindex="-1" role="dialog" aria-labelledby="scheduleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h5 class="modal-title" id="scheduleModalLabel"><i class="fas fa-calendar-week"></i> <%= schedule.date %></h5>
+                  <h5 class="modal-title" id="scheduleModalLabel-<%= schedule.id %>"><i class="fas fa-calendar-week"></i> <%= schedule.date %></h5>
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                   </button>

@@ -3,12 +3,10 @@ class SchedulesController < ApplicationController
   after_action :authorize_schedule, except: :index
 
   def index
-    @schedules = policy_scope(Schedule)
-    if params[:query].present?
-      @schedules = @schedules.search_by_content(params[:query])
-    else
-      @schedules
-    end
+    @schedules = policy_scope(Schedule).order(date: :asc)
+
+    @schedules = @schedules.search_by_content(params[:query]) if params[:query].present?
+
   end
 
   def new
