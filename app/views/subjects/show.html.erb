@@ -6,7 +6,7 @@
   <p class="lead"><%= @subject.description %> </p>
   <hr class="my-4">
 
-  <% if current_user.teacher %>
+  <% if policy(@subject).update? %> <!-- Only 1 policy required for the 3 cruds -->
     <%= link_to 'Create A Chapter', new_subject_chapter_path(@subject),class:"btn btn-primary rounded" %>
     <%= link_to 'Edit', edit_subject_path(@subject),class:"btn btn-info rounded" %>
     <%= link_to 'Delete', subject_path(@subject), method: :delete, data: {confirm: 'Are you sure'},class:"btn btn-danger rounded" %>

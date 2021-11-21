@@ -3,7 +3,7 @@ class PagesController < ApplicationController
 
   def home
     @subjects = Subject.all
-    @schedules = Schedule.all
+    @schedules = policy_scope(Schedule).order(date: :asc)
   end
 
   def campus
