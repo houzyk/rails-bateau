@@ -1,7 +1,7 @@
 class SchedulePolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      scope.all
+      scope.where(user: user)
     end
   end
 
@@ -14,10 +14,10 @@ class SchedulePolicy < ApplicationPolicy
   end
 
   def update?
-    true
+    record.user == user
   end
 
   def destroy?
-    true
+    record.user == user
   end
 end
