@@ -8,9 +8,13 @@
 
   <% if current_user.teacher %>
     <%= link_to 'Add a new material', new_subject_chapter_material_path(@chapter.subject, @chapter),class:"btn btn-primary rounded" %>
+  <% end %>
+
+  <% if policy(@chapter).update? %>
     <%= link_to 'Edit chapter', edit_chapter_path(@chapter), class:"btn btn-info rounded" %>
     <%= link_to 'Delete', chapter_path(@chapter), method: :delete, data: {confirm: 'Are you sure'}, class:"btn btn-danger rounded"  %>
   <% end %>
+
 </div>
 
 <div class="container chapter-container shadow p-5">
