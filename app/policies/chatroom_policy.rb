@@ -10,7 +10,7 @@ class ChatroomPolicy < ApplicationPolicy
   end
 
   def show?
-    true
+    record.participants.any? { |participant| participant.user_id == user.id }
   end
 
   def create?
