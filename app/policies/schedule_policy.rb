@@ -1,7 +1,7 @@
 class SchedulePolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      scope.where(user: user)
+      scope.where('user_id = ? or public = ?', user, true)
     end
   end
 
