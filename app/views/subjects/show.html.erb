@@ -6,8 +6,11 @@
   <p class="lead"><%= @subject.description %> </p>
   <hr class="my-4">
 
-  <% if policy(@subject).update? %> <!-- Only 1 policy required for the 3 cruds -->
+  <% if policy(Chapter).create? %>
     <%= link_to 'Create A Chapter', new_subject_chapter_path(@subject),class:"btn btn-primary rounded" %>
+  <% end %>
+
+  <% if policy(@subject).update? %> <!-- Only 1 policy required for the 2 cruds -->
     <%= link_to 'Edit', edit_subject_path(@subject),class:"btn btn-info rounded" %>
     <%= link_to 'Delete', subject_path(@subject), method: :delete, data: {confirm: 'Are you sure'},class:"btn btn-danger rounded" %>
   <% end %>
@@ -21,7 +24,7 @@
 
     <p class="text-justify"><%= chapter.description %></p>
     <%= link_to "Go to Chapter", subject_chapter_path(@subject, chapter), class:"btn btn-sm btn-primary mt-3 rounded px-4"%>
-    <% if current_user.teacher %>
+    <% if policy(chapter).update? %> <!-- Only 1 policy required for the 2 cruds -->
         <%= link_to "Edit Chapter", edit_chapter_path(chapter), class:"btn btn-sm btn-info mt-3 rounded px-4" %>
 
         <%= link_to "Delete Chapter", chapter_path(chapter), method: :delete, data: {confirm: 'Are you sure'}, class:"btn btn-sm btn-danger mt-3 rounded px-4"%>
