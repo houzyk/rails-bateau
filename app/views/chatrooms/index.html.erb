@@ -1,18 +1,20 @@
 <div class="container my-4">
-  <h4>You have <strong><%= @chatrooms.count %></strong> messages</h4>
+  <h4>You have <strong><%= @chatrooms_count %></strong> messages</h4>
   <% @chatrooms.each do |chatroom| %>
-    <% participant = chatroom.participants.reject{ |participant| participant.user == current_user }%>
-    <div class="card-user my-4">
-      <% if participant.first.user.photo.attached?%>
-        <%= cl_image_tag participant.first.user.photo.key, gravity: :face, crop: :thumb  %>
-      <% else %>
-        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-      <% end %>
-      <div class="card-user-infos">
-        <h2><%= participant.first.user.first_name%> <%= participant.first.user.last_name%></h2>
-        <p><strong><%= participant.first.user.email %></strong></p>
+    <% if policy(chatroom).show? %> <!-- CHEEKY -->
+      <% participant = chatroom.participants.reject{ |participant| participant.user == current_user }%>
+      <div class="card-user my-4">
+        <% if participant.first.user.photo.attached?%>
+          <%= cl_image_tag participant.first.user.photo.key, gravity: :face, crop: :thumb  %>
+        <% else %>
+          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+        <% end %>
+        <div class="card-user-infos">
+          <h2><%= participant.first.user.first_name%> <%= participant.first.user.last_name%></h2>
+          <p><strong><%= participant.first.user.email %></strong></p>
+        </div>
+        <%= link_to 'Go To Chat', chatroom_path(chatroom), class:"btn btn-primary teacher-contact"%>
       </div>
-      <%= link_to 'Go To Chat', chatroom_path(chatroom), class:"btn btn-primary teacher-contact"%>
-    </div>
+    <% end %>
   <% end %>
 </div>

@@ -5,6 +5,12 @@ class ChatroomsController < ApplicationController
     @chatrooms = policy_scope(Chatroom)
     @chatroom = Chatroom.new
     @users = User.all
+    user_chatrooms = @chatrooms.select do |chatroom|
+      chatroom.participants.any? do |participant|
+        participant.user_id == current_user.id
+      end
+    end
+    @chatrooms_count = user_chatrooms.count
   end
 
   def show
