@@ -6,7 +6,7 @@
   <p class="lead"><%= @chapter.description %></p>
   <hr class="my-4">
 
-  <% if current_user.teacher %>
+  <% if policy(Material).create? %>
     <%= link_to 'Add a new material', new_subject_chapter_material_path(@chapter.subject, @chapter),class:"btn btn-primary rounded" %>
   <% end %>
 
@@ -28,7 +28,7 @@
       <%= material.content %>
       <br>
 
-      <% if current_user.teacher %>
+      <% if policy(material).update? %>
         <%= link_to 'Edit Content', edit_material_path(material), class:'btn btn-info' %>
         <%= link_to 'Delete Content', material_path(material), method: :delete, data: {confirm: 'Are you sure'}, class:'btn btn-danger'  %>
       <% end %>
