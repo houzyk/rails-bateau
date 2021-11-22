@@ -1,3 +1,5 @@
+<%= javascript_include_tag 'https://media.twiliocdn.com/sdk/js/video/releases/2.3.0/twilio-video.min.js' %>
+
 <div class="row">
   <div class="col-9">
     <div id="remote-video">
@@ -17,3 +19,12 @@
     </button>
   </div>
 </div>
+
+<script>
+  $(document).ready(function() {
+    setTimeout(
+      function() {
+        joinRoom("<%= @room_name %>","<%= @token %>");
+      }, 2000);
+  });
+</script>

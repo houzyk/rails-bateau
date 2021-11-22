@@ -6,6 +6,7 @@ require("trix")
 require("@rails/actiontext")
 // ! TWILLO
 require("jquery")
+require("packs/video_call")
 
 import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
