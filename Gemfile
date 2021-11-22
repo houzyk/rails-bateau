@@ -40,6 +40,7 @@ gem 'simple_form'
 gem 'pundit'
 gem 'cloudinary', '~> 1.16.0'
 gem 'rails_admin', '~> 2.0'
+gem 'twilio-ruby'
 
 group :development, :test do  gem 'pry-byebug'
   gem 'pry-rails'
