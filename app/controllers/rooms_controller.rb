@@ -1,5 +1,11 @@
 class RoomsController < ApplicationController
   def show
+    # @rooms = Room.all
+    # unless @rooms.empty?
+
+    # else
+
+    # end
     @room = Room.find(params[:id])
     @client = Twilio::REST::Client.new(ENV['ACCOUNT_SID'], ENV['AUTH_TOKEN'])
     unless @room.room_sid.present?
@@ -19,6 +25,7 @@ class RoomsController < ApplicationController
 
     @token.add_grant grant
     @token = @token.to_jwt
+
     authorize @room
   end
 
@@ -32,13 +39,21 @@ class RoomsController < ApplicationController
 
   def create
     set_chatroom
-    @room = Room.new(name: @chatroom.name)
-    respond_to do |format|
-      if @room.save
-        format.html { redirect_to chatroom_room_path(@chatroom, @room) }
-        format.json { render :show, status: :created, location: @room }
-      else
-        render :new
+    @rooms = Room.all
+    unless @rooms.empty?
+      @user_videoroom = @rooms.select do |room|
+        room.name == @chatroom.name
+      end
+      raise
+    else
+      @room = Room.new(name: @chatroom.name)
+      respond_to do |format|
+        if @room.save
+          format.html { redirect_to chatroom_room_path(@chatroom, @room) }
+          format.json { render :show, status: :created, location: @room }
+        else
+          render :new
+        end
       end
     end
     authorize @room
