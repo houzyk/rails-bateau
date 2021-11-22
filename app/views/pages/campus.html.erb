@@ -26,7 +26,6 @@
           <p><strong><%= user.email %></strong></p>
         </div>
         <div class="teacher-contact">
-          <%= link_to 'Video', new_room_path, class:"btn btn-primary" %>
           <% if policy(Chatroom).new? %>
             <%= link_to 'Contact', new_chatroom_path(user), class:"btn btn-primary"%>
           <% end %>

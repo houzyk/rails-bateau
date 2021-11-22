@@ -1,4 +1,4 @@
-<%= simple_form_for(@room) do |f| %>
+<%= simple_form_for([@chatroom, @room]) do |f| %>
   <div class="field">
     <%= f.label :name %>
     <%= f.text_field :name %>
