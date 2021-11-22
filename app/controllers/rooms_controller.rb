@@ -1,5 +1,6 @@
 class RoomsController < ApplicationController
   def show
+    @room = Room.find(params[:id])
     @client = Twilio::REST::Client.new(ENV['ACCOUNT_SID'], ENV['AUTH_TOKEN'])
     unless @room.room_sid.present?
       # create room in twilio
@@ -22,14 +23,30 @@ class RoomsController < ApplicationController
   end
 
   def new
+    @room = Room.new
     authorize @room
   end
 
   def create
+    @room = Room.new(room_params)
+    respond_to do |format|
+      if @room.save
+        format.html { redirect_to room_path(@room) }
+        format.json { render :show, status: :created, location: @room }
+      else
+        render :new
+      end
+    end
     authorize @room
   end
 
   def destroy
     authorize @room
+  end
+
+  private
+
+  def room_params
+    params.require(:room).permit(:name)
   end
 end

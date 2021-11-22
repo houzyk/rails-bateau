@@ -7,6 +7,8 @@ require("@rails/actiontext")
 // ! TWILLO
 require("jquery")
 require("packs/video_call")
+import $ from 'jquery';
+window.jQuery = $; window.$ = $;
 
 import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
@@ -16,9 +18,6 @@ import "bootstrap";
 import "trix";
 import "@rails/actiontext";
 import { initChatroomCable } from '../channels/chatroom_channel';
-// ! TWILLO
-import $ from 'jquery';
-window.jQuery = $; window.$ = $;
 
 Rails.start()
 Turbolinks.start()
