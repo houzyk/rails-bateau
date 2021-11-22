@@ -43,16 +43,23 @@ class ChatroomsController < ApplicationController
     @single_room = Chatroom.where(name: @room_name).first || Chatroom.create_private_room([@user, @current_user], @room_name)
     @messages = @single_room.messages
 
-    @room = Room.new(name: @single_room.name)
-    respond_to do |format|
-      if @room.save
-        format.html { redirect_to chatroom_room_path(@single_room, @room) }
-        format.json { render :show, status: :created, location: @room }
-      else
-        render :new
+    @rooms = Room.all
+    unless @rooms.empty?
+      @room = @rooms.select do |room|
+        room.name == @single_room.name
+      end
+      redirect_to chatroom_room_path(@single_room, @room)
+    else
+      @room = Room.new(name: @single_room.name)
+      respond_to do |format|
+        if @room.save
+          format.html { redirect_to chatroom_room_path(@single_room, @room) }
+          format.json { render :show, status: :created, location: @room }
+        else
+          render :new
+        end
       end
     end
-
     authorize @single_room
   end
 

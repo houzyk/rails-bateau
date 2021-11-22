@@ -19,26 +19,31 @@ class RoomsController < ApplicationController
 
     @token.add_grant grant
     @token = @token.to_jwt
+
     authorize @room
   end
 
   def new
-    # set_chatroom
-    # @room = Room.new
-    # authorize @room
-    # raise
     create
   end
 
   def create
     set_chatroom
-    @room = Room.new(name: @chatroom.name)
-    respond_to do |format|
-      if @room.save
-        format.html { redirect_to chatroom_room_path(@chatroom, @room) }
-        format.json { render :show, status: :created, location: @room }
-      else
-        render :new
+    @rooms = Room.all
+    unless @rooms.empty?
+      @room = @rooms.select do |room|
+        room.name == @chatroom.name
+      end
+      redirect_to chatroom_room_path(@chatroom, @room)
+    else
+      @room = Room.new(name: @chatroom.name)
+      respond_to do |format|
+        if @room.save
+          format.html { redirect_to chatroom_room_path(@chatroom, @room) }
+          format.json { render :show, status: :created, location: @room }
+        else
+          render :new
+        end
       end
     end
     authorize @room
