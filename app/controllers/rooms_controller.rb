@@ -23,15 +23,19 @@ class RoomsController < ApplicationController
   end
 
   def new
-    @room = Room.new
-    authorize @room
+    # set_chatroom
+    # @room = Room.new
+    # authorize @room
+    # raise
+    create
   end
 
   def create
-    @room = Room.new(room_params)
+    set_chatroom
+    @room = Room.new(name: @chatroom.name)
     respond_to do |format|
       if @room.save
-        format.html { redirect_to room_path(@room) }
+        format.html { redirect_to chatroom_room_path(@chatroom, @room) }
         format.json { render :show, status: :created, location: @room }
       else
         render :new
@@ -48,9 +52,16 @@ class RoomsController < ApplicationController
     authorize @room
   end
 
+  # Custom methods
+
+
   private
 
   def room_params
     params.require(:room).permit(:name)
+  end
+
+    def set_chatroom
+    @chatroom = Chatroom.find(params[:chatroom_id])
   end
 end

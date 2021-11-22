@@ -16,4 +16,8 @@ class ChatroomPolicy < ApplicationPolicy
   def create?
     true
   end
+
+  def video?
+    true
+  end
 end

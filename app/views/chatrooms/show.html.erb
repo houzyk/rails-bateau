@@ -3,6 +3,7 @@
   <h1><%= link_to chatrooms_path, class:'text-decoration-none' do%>
     <i class="far fa-arrow-alt-circle-left"></i>
   <% end %> <%= participant.first.user.first_name%> <%= participant.first.user.last_name%></h1>
+  <%= link_to 'Video', new_chatroom_room_path(@chatroom), class:"btn btn-primary" %>
   <div id="messages" data-chatroom-id="<%= @chatroom.id%>">
     <% @chatroom.messages.each do |message|%>
       <div id="message-<%= message.id%>"

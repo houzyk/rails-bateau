@@ -1,5 +1,5 @@
 class ChatroomsController < ApplicationController
-  after_action :authorize_chatroom, except: %i[index new create]
+  after_action :authorize_chatroom, except: %i[index new create video]
 
   def index
     @chatrooms = policy_scope(Chatroom)
@@ -23,7 +23,7 @@ class ChatroomsController < ApplicationController
   end
 
   def create
-    @user = User.find(params[:format])
+    @user = User.find(params[:user])
     @current_user = current_user
     @rooms = Chatroom.public_rooms
     @room = Chatroom.new
@@ -33,6 +33,29 @@ class ChatroomsController < ApplicationController
     redirect_to chatroom_path(@single_room)
     authorize @single_room
   end
+
+  def video
+    @user = User.find(params[:user])
+    @current_user = current_user
+    @rooms = Chatroom.public_rooms
+    @room = Chatroom.new
+    @room_name = get_name(@user, @current_user)
+    @single_room = Chatroom.where(name: @room_name).first || Chatroom.create_private_room([@user, @current_user], @room_name)
+    @messages = @single_room.messages
+
+    @room = Room.new(name: @single_room.name)
+    respond_to do |format|
+      if @room.save
+        format.html { redirect_to chatroom_room_path(@single_room, @room) }
+        format.json { render :show, status: :created, location: @room }
+      else
+        render :new
+      end
+    end
+
+    authorize @single_room
+  end
+
 
   private
 
