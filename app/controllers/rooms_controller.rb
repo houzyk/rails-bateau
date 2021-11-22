@@ -1,11 +1,5 @@
 class RoomsController < ApplicationController
   def show
-    # @rooms = Room.all
-    # unless @rooms.empty?
-
-    # else
-
-    # end
     @room = Room.find(params[:id])
     @client = Twilio::REST::Client.new(ENV['ACCOUNT_SID'], ENV['AUTH_TOKEN'])
     unless @room.room_sid.present?
@@ -30,10 +24,6 @@ class RoomsController < ApplicationController
   end
 
   def new
-    # set_chatroom
-    # @room = Room.new
-    # authorize @room
-    # raise
     create
   end
 
@@ -41,10 +31,10 @@ class RoomsController < ApplicationController
     set_chatroom
     @rooms = Room.all
     unless @rooms.empty?
-      @user_videoroom = @rooms.select do |room|
+      @room = @rooms.select do |room|
         room.name == @chatroom.name
       end
-      raise
+      redirect_to chatroom_room_path(@chatroom, @room)
     else
       @room = Room.new(name: @chatroom.name)
       respond_to do |format|
