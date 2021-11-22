@@ -8,7 +8,7 @@ require("@rails/actiontext")
 require("jquery")
 require("packs/video_call")
 import $ from 'jquery';
-
+window.jQuery = $; window.$ = $;
 
 import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
@@ -37,7 +37,5 @@ ActiveStorage.start()
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
-  window.jQuery = $;
-  window.$ = $;
   initChatroomCable();
 });
