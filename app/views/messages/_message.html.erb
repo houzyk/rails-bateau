@@ -1,5 +1,17 @@
-<div id="message-<%= message.id%>" class="class="d-flex justify-content-start"">
-  <div class="message-box-other-user bg-info">
+<div id="message-<%= message.id%>"
+  <% if current_user == message.user %>
+    class="d-flex justify-content-end"
+  <% else %>
+    class="d-flex justify-content-start"
+  <% end %>
+>
+  <div
+    <% if current_user == message.user %>
+      class="message-box-current-user bg-dark text-light"
+    <% else %>
+      class="message-box-other-user bg-info"
+    <% end %>
+  >
     <h5><%= message.user.first_name %></h5>
     <p><%= message.content %></p>
     <small><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
