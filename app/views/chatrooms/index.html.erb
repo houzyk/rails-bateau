@@ -1,4 +1,5 @@
 <div class="container my-4">
+  <%= link_to 'New Video', new_room_path %>
   <h4>You have <strong><%= @chatrooms_count %></strong> chats</h4>
   <% @chatrooms.each do |chatroom| %>
     <% if policy(chatroom).show? %> <!-- CHEEKY -->
