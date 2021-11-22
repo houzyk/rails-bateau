@@ -4,10 +4,7 @@
 // that code so it'll be compiled.
 require("trix")
 require("@rails/actiontext")
-// ! TWILLO
-require("jquery")
-require("packs/video_call")
-import $ from 'jquery';
+
 
 
 import Rails from "@rails/ujs"
@@ -37,7 +34,6 @@ ActiveStorage.start()
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
-  window.jQuery = $;
-  window.$ = $;
+
   initChatroomCable();
 });
