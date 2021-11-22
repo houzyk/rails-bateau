@@ -52,6 +52,9 @@ class RoomsController < ApplicationController
     authorize @room
   end
 
+  # Custom methods
+
+
   private
 
   def room_params
