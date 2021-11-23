@@ -4,7 +4,7 @@
       <%= simple_form_for (@subject) do |f| %>
         <%= f.input :name %>
         <%= f.input :description %>
-        <%= f.association :category %>
+        <%= f.association :category, input_html: { class: 'select2' }%>
         <%= f.submit class: "btn btn-primary btn-lg btn-block" %>
       <% end %>
     </div>
