@@ -29,13 +29,18 @@ gem 'redis', '~> 4.0'
 gem 'bootsnap', '>= 1.4.4', require: false
 
 gem 'devise'
-
-gem 'autoprefixer-rails', '10.2.5'
-gem 'font-awesome-sass'
-gem 'simple_form'
 # ADDED GEMS
+gem 'actiontext', '~> 6.1', '>= 6.1.4.1'
+gem 'autoprefixer-rails', '10.2.5'
+gem 'faker', '~> 2.19'
+gem 'font-awesome-sass'
+gem 'pg_search', '~> 2.3.0'
+gem "simple_calendar", "~> 2.4"
+gem 'simple_form'
 gem 'pundit'
 gem 'cloudinary', '~> 1.16.0'
+gem 'rails_admin', '~> 2.0'
+gem 'twilio-ruby'
 
 group :development, :test do  gem 'pry-byebug'
   gem 'pry-rails'

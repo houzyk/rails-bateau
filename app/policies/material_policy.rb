@@ -14,14 +14,14 @@ class MaterialPolicy < ApplicationPolicy
   end
 
   def create?
-    true
+    user.teacher
   end
 
   def update?
-    true
+    user.teacher
   end
 
   def destroy?
-    true
+    user.teacher
   end
 end

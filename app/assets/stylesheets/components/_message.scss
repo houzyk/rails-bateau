@@ -1,0 +1,39 @@
+.message-box-current-user {
+  border-radius: 10px;
+  margin: 10px 0;
+  padding: 10px;
+  width: 35vw;
+  overflow-anchor: none;
+
+
+}
+
+.message-box-other-user {
+  border-radius: 10px;
+  margin: 10px 0;
+  padding: 10px;
+  width: 35vw;
+  overflow-anchor: none;
+
+
+}
+.chat-form{
+  height: 12vh;
+  overflow: scroll;
+}
+#messages{
+  height: 60vh;
+  overflow: scroll;
+
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.text-box {
+  position: relative;
+  top: 20px;
+}
+
+.text-create {
+  font-weight: 700;
+}

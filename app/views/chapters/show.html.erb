@@ -1,13 +1,43 @@
-<div class="container">
-  <h2><%= @chapter.title %></h2>
-  <p><%= @chapter.description %></p>
-  <% @chapter.materials.each do |material| %>
-    <div>
-      <%= material.name %>
-      <%= link_to 'Edit', edit_material_path(material) %>
-      <%= link_to 'Delete', material_path(material), method: :delete, data: {confirm: 'Are you sure'}  %>
-    </div>
+<div class="jumbotron container my-4 position-relative">
+  <%= link_to subject_path(@chapter.subject), class:'position-absolute', id:'back' do%>
+    <i class="far fa-arrow-alt-circle-left"></i>
   <% end %>
-  <%= link_to 'Add Material', new_subject_chapter_material_path(@chapter.subject, @chapter) %>
-  <%= link_to 'Back', subject_path(@chapter.subject) %>
+  <h1 class="display-4"><%= @chapter.title %></h1>
+  <p class="lead"><%= @chapter.description %></p>
+  <hr class="my-4">
+
+  <% if policy(Material).create? %>
+    <%= link_to 'Add a new material', new_subject_chapter_material_path(@chapter.subject, @chapter),class:"btn btn-primary rounded" %>
+  <% end %>
+
+  <% if policy(@chapter).update? %>
+    <%= link_to 'Edit chapter', edit_chapter_path(@chapter), class:"btn btn-info rounded" %>
+    <%= link_to 'Delete', chapter_path(@chapter), method: :delete, data: {confirm: 'Are you sure'}, class:"btn btn-danger rounded"  %>
+  <% end %>
+
+</div>
+
+<div class="container chapter-container shadow p-5">
+  <h3>This chapter includes <%= pluralize(@chapter.materials.count, "topic") %> </h3>
+  <hr>
+
+
+  <% @chapter.materials.each do |material| %>
+      <h2><%= material.name %></h2>
+
+      <%= material.content %>
+      <br>
+
+      <% if policy(material).update? %>
+        <%= link_to 'Edit Content', edit_material_path(material), class:'btn btn-info' %>
+        <%= link_to 'Delete Content', material_path(material), method: :delete, data: {confirm: 'Are you sure'}, class:'btn btn-danger'  %>
+      <% end %>
+
+      <hr>
+
+  <% end %>
+
+  <div class="accordion ml-4 mb-4" id="accordionExample" >
+    <%= render 'shared/chapteraccordion' %>
+  </div>
 </div>

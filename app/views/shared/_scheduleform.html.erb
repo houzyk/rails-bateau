@@ -1,6 +1,8 @@
 <%= simple_form_for (@schedule) do |f| %>
   <%= f.input :content %>
-  <%= f.input :date %>
-  <%= f.submit %>
+  <%= f.input :date, html5: true %>
+  <% if current_user.teacher %>
+    <%= f.input :public%>
+  <% end %>
+  <%= f.submit class:'btn btn-primary mt-2 btn-block' %>
 <% end %>
-

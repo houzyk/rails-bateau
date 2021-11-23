@@ -1,11 +1,57 @@
-<div class="d-flex vh-100">
-  <div class="container my-auto">
-    <h2 class="font-weight-bold text-center">Welcome to Bateau</h2>
-    <br>
-    <div class="text-center">
-      <%= link_to "Enter as a Student", root_path, class: "btn btn-primary" %>
-      <span> or </span><%= link_to "as a Teacher", root_path, class: "font-weight-bold" %>
+<% if user_signed_in? %>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-md-4">
+        <div class="student-card-wrapper">
+          <div class="student-card bg-light">
+            <% if current_user.photo.attached? %>
+              <%= cl_image_tag current_user.photo.key, crop: :thumb, gravity: :face, class:"avatar-large mx-auto", alt: "avatar-large" %>
+            <% else %>
+              <%= image_tag "https://kitt.lewagon.com/placeholder/users/arthur-littm", class: "avatar-large mx-auto", alt: "avatar-large" %>
+            <% end %>
+            <div class="text-center mt-4">
+              <h3><%= current_user.first_name %> <%= current_user.last_name %></h3>
+              <p><i class="fas fa-calendar-week"></i> <%= Date.today.strftime("%a, %e %b %Y") %></p>
+            </div>
+            <div class="schedule-card container">
+              <h5 class="text-center">Reminders</h5>
+              <% if @schedules.empty? %>
+                <div class="card-calendar-dashboard-empty">
+                  <i class="fas fa-smile-wink"></i>
+                  <p>Nothing to do yet!</p>
+                </div>
+              <% else %>
+                <% @schedules.reverse.first(2).each do |schedule| %>
+                  <div class="card-calendar-dashboard">
+                    <i class="far fa-bell"></i>
+                    <div class="card-calendar-dashboard-infos">
+                      <h2><%= schedule.content %></h2>
+                      <p><%= schedule.date %></p>
+                    </div>
+                  </div>
+                <% end %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-8">
+        <div class="subject-cards">
+          <% @subjects.each do |subject| %>
+            <%= link_to subject_path(subject) do%>
+              <div class="subject-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path subject.category.photo.key, height: 300, crop: :fill %>')">
+                <div class="subject-title">
+                  <div class="tag-subject <%= subject.category.name.downcase %>"></div>
+                  <h4><%= subject.name %></h4>
+                </div>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
     </div>
   </div>
-</div>
-<%= render 'shared/footer' %>
+<% else %>
+  <%= render 'shared/homepage' %>
+<% end %>

@@ -1,0 +1,37 @@
+<div class="container">
+  <div class="mt-4 mb-5 search">
+    <%= form_tag campus_path, method: :get do %>
+      <div class="search-bar form-group">
+          <%= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+            placeholder: "Find a Teacher or a Student"
+          %>
+          <%= submit_tag "Search", class: "btn btn-info" %>
+      </div>
+    <% end %>
+  </div>
+  <h4>Your campus has <strong><%= @count_teachers%></strong> teachers and <strong><%= @count_students%></strong> students.</h4>
+  <% @users.each do |user| %>
+    <% if user != current_user %>
+      <div class="card-user my-4">
+        <% if user.photo.attached?%>
+          <%= cl_image_tag user.photo.key, gravity: :face, crop: :thumb  %>
+        <% else %>
+          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+        <% end %>
+        <div class="card-user-infos">
+          <% word = user.teacher? ? "Teacher" : "Student"%>
+          <h2><%= user.first_name %> <%= user.last_name %> | <%= word %></h2>
+          <p><strong><%= user.email %></strong></p>
+        </div>
+        <div class="teacher-contact">
+          <%= link_to 'Video', video_path(user: user), class:"btn btn-primary" %>
+          <% if policy(Chatroom).new? %>
+            <%= link_to 'Contact', new_chatroom_path(user: user), class:"btn btn-primary"%>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>

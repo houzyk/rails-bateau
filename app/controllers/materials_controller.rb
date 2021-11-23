@@ -35,7 +35,7 @@ class MaterialsController < ApplicationController
   private
 
   def material_params
-    params.require(:material).permit(:name, :subject_id, :chapter_id)
+    params.require(:material).permit(:name, :content, :subject_id, :chapter_id)
   end
 
   def authorize_material

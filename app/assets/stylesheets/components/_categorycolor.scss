@@ -1,0 +1,29 @@
+:root{
+  --transparency: 0.7;
+}
+.science{
+  background-color: hsla(226, 84%, 43%, var(--transparency));
+}
+.art{
+  background-color: hsla(0, 100%, 50%, var(--transparency));
+}
+
+.sport{
+  background-color: hsla(120, 100%, 50%, var(--transparency));
+}
+
+.economics{
+  background-color: hsla(240, 67%, 56%, var(--transparency));
+}
+
+.literature{
+  background-color: rgba(233, 144, 28, var(--transparency));
+}
+
+.history{
+  background-color: rgba(89, 212, 212, var(--transparency));
+}
+
+.geography{
+  background-color: rgba(129, 43, 129, var(--transparency));
+}

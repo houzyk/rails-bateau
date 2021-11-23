@@ -1,8 +1,11 @@
-<div class="container">
+
   <div class="form-item">
     <%= simple_form_for ([@subject, @chapter, @material]) do |f| %>
-      <%= f.input :name %>
-      <%= f.submit %>
+      <%= f.input :name ,
+            placeholder: "Add name to your topic" %>
+      <%= f.rich_text_area :content,
+            placeholder: "Add name your content here",
+                class:"material-form" %>
+      <%= f.submit 'Add Topic', class:'btn btn-primary mt-2 btn-block' %>
     <% end %>
   </div>
-</div>

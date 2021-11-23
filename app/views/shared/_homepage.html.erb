@@ -1,0 +1,25 @@
+<div class="mt-4 d-flex align-items-center">
+  <div class="jumbotron col-8 mx-auto" id='homepage'>
+    <h1 class="font-weight-bold text-center mb-4">Welcome to Bateau</h1>
+    <p class="text-center"><%= link_to "Enter as a Student", new_user_session_path, class: "btn btn-primary" %>
+      <span> or </span><%= link_to "as a Teacher", new_user_session_path, class: "font-weight-bold" %></p>
+  </div>
+</div>
+
+  <div id="box">
+    <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+    viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+    <defs>
+    <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+    </defs>
+    <g class="parallax">
+    <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(0, 255, 255, 0.7)" />
+    <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(15,216,216,0.5)" />
+    <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(76,207,207,0.3)" />
+    <use xlink:href="#gentle-wave" x="48" y="7" fill="rgba(76, 155, 207, 0.87)" />
+    </g>
+    </svg>
+  </div>
+
+
+<%= render 'shared/footer' %>
