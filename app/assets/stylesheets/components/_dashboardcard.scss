@@ -92,6 +92,9 @@
 @media (min-width: 768px) {
   .subject-cards {
     grid-template-columns: 1fr 1fr;
+    h4 {
+      font-size: 1rem;
+    }
   }
 }
 
@@ -99,6 +102,9 @@
 @media (min-width: 992px) {
   .subject-cards {
     grid-template-columns: 1fr 1fr;
+    h4 {
+      font-size: 1.5rem;
+    }
   }
 }
 
@@ -122,7 +128,12 @@
   border-radius: 10px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   position: relative;
+  transition: all 0.5s ease-out;
+  &:hover {
+    transform: scale(1.02);
+  }
 }
+
 
 .subject-title {
   background-color: white;

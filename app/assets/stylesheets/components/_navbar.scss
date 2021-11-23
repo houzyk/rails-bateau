@@ -1,6 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap');
+
 .navbar-lewagon {
   justify-content: space-between;
   background: white;
+  h3 {
+    font-family: 'Alfa Slab One', cursive;
+  }
 }
 
 .navbar-lewagon .navbar-collapse {
