@@ -3,6 +3,9 @@
   margin: 10px 0;
   padding: 10px;
   width: 35vw;
+  overflow-anchor: none;
+
+
 }
 
 .message-box-other-user {
@@ -10,6 +13,9 @@
   margin: 10px 0;
   padding: 10px;
   width: 35vw;
+  overflow-anchor: none;
+
+
 }
 .chat-form{
   height: 12vh;
@@ -18,6 +24,9 @@
 #messages{
   height: 60vh;
   overflow: scroll;
+
+  display: flex;
+  flex-direction: column-reverse;
 }
 
 .text-box {

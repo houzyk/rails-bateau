@@ -10,7 +10,7 @@ const initChatroomCable = () => {
       { channel: "ChatroomChannel", id: id },
       {
         received(data) {
-          messagesContainer.insertAdjacentHTML("beforeend", data); // called when data is broadcast in the cable
+          messagesContainer.insertAdjacentHTML("afterbegin", data); // called when data is broadcast in the cable
         },
       }
     );
