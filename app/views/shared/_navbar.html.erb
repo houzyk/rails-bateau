@@ -17,19 +17,19 @@
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
         <li class="nav-item">
-          <b><%= link_to "Dashboard", root_path, class: "nav-link text-dark" %></b>
+          <b><%= link_to "Dashboard", root_path, class: "nav-link text-dark btn-link-text" %></b>
         </li>
         <li class="nav-item">
-          <b><%= link_to "Subjects", subjects_path, class: "nav-link text-dark" %></b>
+          <b><%= link_to "Subjects", subjects_path, class: "nav-link text-dark btn-link-text" %></b>
         </li>
         <li class="nav-item">
-          <b><%= link_to "Messages", chatrooms_path, class: "nav-link text-dark" %></b>
+          <b><%= link_to "Messages", chatrooms_path, class: "nav-link text-dark btn-link-text" %></b>
         </li>
         <li class="nav-item">
-          <b><%= link_to "Calendar", schedules_path, class: "nav-link text-dark" %></b>
+          <b><%= link_to "Calendar", schedules_path, class: "nav-link text-dark btn-link-text" %></b>
         </li>
         <li class="nav-item">
-          <b><%= link_to "Campus", campus_path, class: "nav-link text-dark" %></b>
+          <b><%= link_to "Campus", campus_path, class: "nav-link text-dark btn-link-text" %></b>
         </li>
         <li class="nav-item dropdown">
           <% if current_user.photo.attached? %>
@@ -45,7 +45,7 @@
         </li>
       <% else %>
         <li class="nav-item">
-          <b><%= link_to "Sign Up", new_user_registration_path, class: "nav-link text-dark sign-up" %></b>
+          <b><%= link_to "Sign Up", new_user_registration_path, class: "nav-link text-dark btn-link-text" %></b>
         </li>
       <% end %>
     </ul>
