@@ -34,11 +34,7 @@ ActiveStorage.start()
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
-<<<<<<< HEAD
   initSelect2();
-=======
   // initSelect2();
-
   initChatroomCable();
->>>>>>> master
 });
