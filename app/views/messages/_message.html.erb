@@ -1,12 +1,12 @@
 <div id="message-<%= message.id%>"
-  <% if current_user == message.user %>
+  <% if current_user != message.user %>
     class="d-flex justify-content-end"
   <% else %>
     class="d-flex justify-content-start"
   <% end %>
 >
   <div
-    <% if current_user == message.user %>
+    <% if current_user != message.user %>
       class="message-box-current-user bg-dark text-light"
     <% else %>
       class="message-box-other-user bg-info"
