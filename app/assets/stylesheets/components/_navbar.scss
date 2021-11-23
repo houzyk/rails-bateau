@@ -12,5 +12,11 @@
 }
 
 .navbar-color {
-  background-color: rgb(0, 187, 180);
+  background-color: rgb(181, 225, 224);
+}
+
+.sign-up:hover {
+  background-color: rgba(0, 187, 180, 0.6);
+  border-radius: 5px;
+  transition: all 0.3s ease-in-out;
 }
