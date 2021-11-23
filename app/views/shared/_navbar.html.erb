@@ -1,11 +1,6 @@
-<div class="navbar navbar-expand-sm navbar-dark bg-dark navbar-lewagon sticky-top">
+<div class="navbar navbar-expand-sm navbar-dark navbar-color navbar-lewagon sticky-top">
   <%= link_to root_path, class: "navbar-brand d-flex align-items-center" do %>
-    <div id="logo" class="mr-2">
-      <div id="frame">
-        <div id="wave"></div>
-        <div id="boat"></div>
-      </div>
-    </div>
+    <h3>le bateau</h3>
   <% end %>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -17,19 +12,19 @@
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
         <li class="nav-item">
-          <%= link_to "Dashboard", root_path, class: "nav-link" %>
+          <b><%= link_to "Dashboard", root_path, class: "nav-link text-dark btn-link-text" %></b>
         </li>
         <li class="nav-item">
-          <%= link_to "Subjects", subjects_path, class: "nav-link" %>
+          <b><%= link_to "Subjects", subjects_path, class: "nav-link text-dark btn-link-text" %></b>
         </li>
         <li class="nav-item">
-          <%= link_to "Messages", chatrooms_path, class: "nav-link" %>
+          <b><%= link_to "Messages", chatrooms_path, class: "nav-link text-dark btn-link-text" %></b>
         </li>
         <li class="nav-item">
-          <%= link_to "Calendar", schedules_path, class: "nav-link" %>
+          <b><%= link_to "Calendar", schedules_path, class: "nav-link text-dark btn-link-text" %></b>
         </li>
         <li class="nav-item">
-          <%= link_to "Campus", campus_path, class: "nav-link" %>
+          <b><%= link_to "Campus", campus_path, class: "nav-link text-dark btn-link-text" %></b>
         </li>
         <li class="nav-item dropdown">
           <% if current_user.photo.attached? %>
@@ -39,13 +34,12 @@
           <% end %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
             <%= link_to "Edit My Account", edit_user_registration_path, class: "dropdown-item" %>
-            <%= link_to "Another action", "#", class: "dropdown-item" %>
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           </div>
         </li>
       <% else %>
         <li class="nav-item">
-          <%= link_to "Sign Up", new_user_registration_path, class: "nav-link" %>
+          <b><%= link_to "Sign Up", new_user_registration_path, class: "nav-link text-dark btn-link-text" %></b>
         </li>
       <% end %>
     </ul>
