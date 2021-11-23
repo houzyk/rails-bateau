@@ -35,5 +35,4 @@ ActiveStorage.start()
 document.addEventListener('turbolinks:load', () => {
   initSelect2();
   initChatroomCable();
-  console.log("Here");
 });
