@@ -13,7 +13,9 @@
           <h2><%= participant.first.user.first_name%> <%= participant.first.user.last_name%></h2>
           <p><strong><%= participant.first.user.email %></strong></p>
         </div>
-        <%= link_to 'Go To Chat', chatroom_path(chatroom), class:"btn btn-primary teacher-contact"%>
+        <%= link_to chatroom_path(chatroom), class:"btn btn-primary teacher-contact" do %>
+          <i class="fas fa-comments"></i>
+        <% end %>
       </div>
     <% end %>
   <% end %>

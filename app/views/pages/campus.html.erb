@@ -7,7 +7,10 @@
             class: "form-control",
             placeholder: "Find a Teacher or a Student"
           %>
-          <%= submit_tag "Search", class: "btn btn-info" %>
+          <!-- <%= submit_tag "Search", class: "btn btn-info" %> -->
+          <%= button_tag type:"submit", class: "btn btn-info" do %>
+            <i class="fas fa-search"></i> Search
+          <% end %>
       </div>
     <% end %>
   </div>
@@ -26,9 +29,13 @@
           <p><strong><%= user.email %></strong></p>
         </div>
         <div class="teacher-contact">
-          <%= link_to 'Video', video_path(user: user), class:"btn btn-primary" %>
+          <%= link_to video_path(user: user), class:"btn btn-primary" do %>
+            <i class="fas fa-video"></i>
+          <% end %>
           <% if policy(Chatroom).new? %>
-            <%= link_to 'Contact', new_chatroom_path(user: user), class:"btn btn-primary"%>
+            <%= link_to new_chatroom_path(user: user), class:"btn btn-primary" do %>
+              <i class="fas fa-comments"></i>
+            <% end %>
           <% end %>
         </div>
       </div>
