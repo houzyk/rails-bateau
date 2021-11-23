@@ -5,7 +5,7 @@
   <% end %> <%= participant.first.user.first_name%> <%= participant.first.user.last_name%></h1>
   <%= link_to 'Video', new_chatroom_room_path(@chatroom), class:"btn btn-primary" %>
   <div id="messages" data-chatroom-id="<%= @chatroom.id%>">
-    <% @chatroom.messages.each do |message|%>
+    <% @chatroom.messages.reverse.each do |message|%>
       <div id="message-<%= message.id%>"
         <% if current_user == message.user %>
           class="d-flex justify-content-end"

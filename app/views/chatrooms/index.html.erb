@@ -1,6 +1,6 @@
 <div class="container my-4">
   <h4>You have <strong><%= @chatrooms_count %></strong> chats</h4>
-  <% @chatrooms.each do |chatroom| %>
+  <% @chatrooms.reverse.each do |chatroom| %>
     <% if policy(chatroom).show? %> <!-- CHEEKY -->
       <% participant = chatroom.participants.reject{ |participant| participant.user == current_user }%>
       <div class="card-user my-4">
