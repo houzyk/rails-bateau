@@ -3,7 +3,12 @@
 <div class="videos-container">
   <div id="remote-video"></div>
   <div id="local-video"></div>
-  <%= link_to 'End Call', room_path(@room), method: :delete, class: "btn btn-danger buttons-panel" %>
+  <div class="buttons-panel">
+    <%= link_to 'End Call', room_path(@room), method: :delete, class: "btn btn-danger" %>
+    <%= link_to 'Mute', "#", class: "btn btn-danger" %>
+    <%= link_to 'Add A Participant', "#", class: "btn btn-danger"  %>
+    <%= link_to 'KeyPad', "#", class: "btn btn-danger"  %>
+  </div>
 </div>
 
 <script>
