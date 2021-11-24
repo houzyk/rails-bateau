@@ -1,19 +1,29 @@
-<div class="jumbotron container my-4 position-relative">
-  <%= link_to subjects_path, class:'position-absolute', id:'back' do%>
-    <i class="far fa-arrow-alt-circle-left"></i>
-  <% end %>
-  <h1 class="display-4"><%= @subject.name %> </h1>
+<div class="jumbotron container my-4 bg-white shadow">
+  <div class="d-flex justify-content-between align-items-center">
+    <div class="left-content">
+      <%= link_to subjects_path, class:'d-inline', id:'back' do%>
+        <i class="far fa-arrow-alt-circle-left" data-toggle="tooltip" data-placement="bottom" title="Go back"></i>
+      <% end %>
+      <h1 class="display-4 d-inline"><%= @subject.name %> </h1>
+    </div>
+    <div class="right-content">
+      <% if policy(@subject).update? %> <!-- Only 1 policy required for the 2 cruds -->
+        <%= link_to edit_subject_path(@subject), class:"btn btn-info rounded", data: {toggle: "tooltip", placement:"bottom"}, title:"Edit the subject" do%>
+          <i class="fas fa-edit"></i>
+        <% end %>
+        <%= link_to subject_path(@subject), method: :delete, data: {confirm: 'Are you sure', toggle: "tooltip", placement:"bottom"}, title:"Delete the subject",class:"btn btn-danger rounded" do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
+      <% end %>
+      <% if policy(Chapter).create? %>
+        <%= link_to 'Create A Chapter', new_subject_chapter_path(@subject),class:"btn btn-primary rounded" %>
+      <% end %>
+    </div>
+  </div>
   <p class="lead"><%= @subject.description %> </p>
   <hr class="my-4">
 
-  <% if policy(Chapter).create? %>
-    <%= link_to 'Create A Chapter', new_subject_chapter_path(@subject),class:"btn btn-primary rounded" %>
-  <% end %>
 
-  <% if policy(@subject).update? %> <!-- Only 1 policy required for the 2 cruds -->
-    <%= link_to 'Edit', edit_subject_path(@subject),class:"btn btn-info rounded" %>
-    <%= link_to 'Delete', subject_path(@subject), method: :delete, data: {confirm: 'Are you sure'},class:"btn btn-danger rounded" %>
-  <% end %>
 </div>
 
 <div class="container my-5 chapter-container shadow p-5">
@@ -23,11 +33,17 @@
     <h2><%= chapter.title %></h2>
 
     <p class="text-justify"><%= chapter.description %></p>
+    <br>
+    <h4>This chapter has <%= pluralize(chapter.materials.count, "topic") %></h4>
     <%= link_to "Go to Chapter", subject_chapter_path(@subject, chapter), class:"btn btn-sm btn-primary mt-3 rounded px-4"%>
     <% if policy(chapter).update? %> <!-- Only 1 policy required for the 2 cruds -->
-        <%= link_to "Edit Chapter", edit_chapter_path(chapter), class:"btn btn-sm btn-info mt-3 rounded px-4" %>
+        <%= link_to edit_chapter_path(chapter), class:"btn btn-sm btn-info mt-3 rounded px-4", data: {toggle: "tooltip", placement:"bottom"}, title:"Edit the chapter" do%>
+          <i class="fas fa-edit"></i>
+        <% end %>
 
-        <%= link_to "Delete Chapter", chapter_path(chapter), method: :delete, data: {confirm: 'Are you sure'}, class:"btn btn-sm btn-danger mt-3 rounded px-4"%>
+        <%= link_to chapter_path(chapter), method: :delete, data: {confirm: 'Are you sure', toggle: "tooltip", placement:"bottom"}, class:"btn btn-sm btn-danger mt-3 rounded px-4", title:"Delete the chapter" do%>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
       <% end %>
     <hr>
   <% end %>
