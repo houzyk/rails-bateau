@@ -3,11 +3,11 @@
     <div class="chat-top">
       <div>
         <% participant = @chatroom.participants.reject{ |participant| participant.user == current_user }%>
-        <h1>
+        <h2>
           <%= link_to chatrooms_path, class:'text-decoration-none' do%>
             <i class="far fa-arrow-alt-circle-left"></i>
           <% end %> <%= participant.first.user.first_name%> <%= participant.first.user.last_name%>
-        </h1>
+        </h2>
       </div>
       <div>
         <%= link_to "#", class: "btn btn-dark" do%>
@@ -21,11 +21,6 @@
         <% end %>
       </div>
     </div>
-
-
-
-
-
     <div id="messages" data-chatroom-id="<%= @chatroom.id%>">
       <% @chatroom.messages.reverse.each do |message|%>
         <div id="message-<%= message.id%>"
@@ -51,7 +46,7 @@
         </div>
       <% end %>
     </div>
-    <div class="fixed-bottom bg-transparent text-dark text-box">
+    <div class="bg-transparent text-dark text-box">
       <%= simple_form_for [ @chatroom, @message ], remote: true do |f| %>
       <div class="d-flex">
           <div class="flex-grow-1">
