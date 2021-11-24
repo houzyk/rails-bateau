@@ -1,18 +1,22 @@
-<div class="jumbotron container my-4 position-relative">
-  <%= link_to subjects_path, class:'position-absolute', id:'back' do%>
-    <i class="far fa-arrow-alt-circle-left"></i>
+<div class="jumbotron container my-4 position-relative bg-white shadow">
+  <%= link_to subjects_path, class:'d-inline', id:'back' do%>
+    <i class="far fa-arrow-alt-circle-left" data-toggle="tooltip" data-placement="bottom" title="Go back"></i>
   <% end %>
-  <h1 class="display-4"><%= @subject.name %> </h1>
+  <h1 class="display-4 d-inline"><%= @subject.name %> </h1>
   <p class="lead"><%= @subject.description %> </p>
+  <% if policy(@subject).update? %> <!-- Only 1 policy required for the 2 cruds -->
+    <%= link_to edit_subject_path(@subject),class:"btn btn-info rounded" do%>
+      <i class="fas fa-edit" data-toggle="tooltip" data-placement="bottom" title="Edit the subject"></i>
+    <% end %>
+    <%= link_to subject_path(@subject), method: :delete, data: {confirm: 'Are you sure'},class:"btn btn-danger rounded" do %>
+      <i class="fas fa-trash-alt" data-toggle="tooltip" data-placement="bottom" title="Delete the subject"></i>
+    <% end %>
   <hr class="my-4">
 
   <% if policy(Chapter).create? %>
     <%= link_to 'Create A Chapter', new_subject_chapter_path(@subject),class:"btn btn-primary rounded" %>
   <% end %>
 
-  <% if policy(@subject).update? %> <!-- Only 1 policy required for the 2 cruds -->
-    <%= link_to 'Edit', edit_subject_path(@subject),class:"btn btn-info rounded" %>
-    <%= link_to 'Delete', subject_path(@subject), method: :delete, data: {confirm: 'Are you sure'},class:"btn btn-danger rounded" %>
   <% end %>
 </div>
 
@@ -25,9 +29,13 @@
     <p class="text-justify"><%= chapter.description %></p>
     <%= link_to "Go to Chapter", subject_chapter_path(@subject, chapter), class:"btn btn-sm btn-primary mt-3 rounded px-4"%>
     <% if policy(chapter).update? %> <!-- Only 1 policy required for the 2 cruds -->
-        <%= link_to "Edit Chapter", edit_chapter_path(chapter), class:"btn btn-sm btn-info mt-3 rounded px-4" %>
+        <%= link_to edit_chapter_path(chapter), class:"btn btn-sm btn-info mt-3 rounded px-4", :data => {toggle: "tooltip", placement:"bottom"}, title:"Edit the chapter" do%>
+          <i class="fas fa-edit"></i>
+        <% end %>
 
-        <%= link_to "Delete Chapter", chapter_path(chapter), method: :delete, data: {confirm: 'Are you sure'}, class:"btn btn-sm btn-danger mt-3 rounded px-4"%>
+        <%= link_to chapter_path(chapter), method: :delete, data: {confirm: 'Are you sure'}, class:"btn btn-sm btn-danger mt-3 rounded px-4", :data => {toggle: "tooltip", placement:"bottom"}, title:"Delete the chapter" do%>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
       <% end %>
     <hr>
   <% end %>
