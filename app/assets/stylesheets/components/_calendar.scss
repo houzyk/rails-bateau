@@ -78,11 +78,9 @@
   display: flex;
   .search-region{
     height: 80vh;
-    width: 30%;
     overflow: scroll;
   }
   .calendar-region{
-    width: 70%;
     height: 80vh;
   }
 }
@@ -99,7 +97,7 @@
 
   .btn-info{
     position: absolute;
-    right: 120px;
+    right: 80px;
   }
 
   .btn-danger{
@@ -126,9 +124,77 @@
   padding: 16px;
 }
 
+.card-calendar-infos i {
+  color: #1BCB7F;
+}
+
 .create-schedule{
   position: sticky;
   top: 0px;
   z-index: 999;
   width: 100%;
+}
+
+// @media (max-width: 992px){
+  // .calendar-region {
+    // margin-top: 50px;
+    // margin-bottom: 20px;
+  // }
+  // .calendar-title {
+    // font-size: 20px !important;
+  // }
+// }
+
+// Smallest device
+@media (min-width: 100px) and (max-width: 575px) {
+  .calendar-title {
+    font-size: 18px !important;
+  }
+  .calendar-region {
+    margin-top: 50px;
+    margin-bottom: 100px;
+  }
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+  .calendar-title {
+    font-size: 20px !important;
+  }
+  .calendar-region {
+    margin-top: 50px;
+    margin-bottom: 100px;
+  }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+  .calendar-title {
+    font-size: 15px !important;
+  }
+  .calendar-region {
+    margin-top: 0;
+    margin-bottom: 100px;
+  }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+  .calendar-title {
+    font-size: 30px !important;
+  }
+  .calendar-region {
+    margin-top: 0;
+    margin-bottom: 100px;
+  }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+  .calendar-title {
+    font-size: 30px;
+  }
+  .calendar-region {
+    margin-bottom: 100px
+  }
 }
