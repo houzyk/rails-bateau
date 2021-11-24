@@ -46,21 +46,22 @@
         </div>
       <% end %>
     </div>
-    <div class="chat-bottom">
-        <div class="flex-grow-1">
-          <%= simple_form_for [ @chatroom, @message ], remote: true do |f| %>
-          <%= f.input :content,
-                      label: false,
-                      placeholder: "Message #{participant.first.user.first_name} #{participant.first.user.last_name}",
-                      class:"message-input"%>
-        </div>
-        <div>
-          <%= button_tag type:"submit", class: "btn btn-primary message-send" do %>
-            <i class="fas fa-paper-plane"></i> Send Message
-          <% end %>
-        </div>
-      <% end %>
+    <div>
+
     </div>
+    <%= simple_form_for [ @chatroom, @message ], remote: true do |f| %>
+      <div class="chat-bottom">
+          <div class="flex-grow-1">
+            <%= f.input :content,
+              input_html: {max_rows: "5"},
+                        label: false,
+                        placeholder: "Message #{participant.first.user.first_name} #{participant.first.user.last_name}"%>
+          </div>
+          <div>
+            <%= f.submit class:"btn btn-primary h-100" %>
+          </div>
+      </div>
+    <% end %>
   </div>
   <div class="user-chatroom-cards">
     <% @users.each do |user| %>
