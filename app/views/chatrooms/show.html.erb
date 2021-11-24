@@ -53,12 +53,15 @@
       <div class="chat-bottom">
           <div class="flex-grow-1">
             <%= f.input :content,
-              input_html: {max_rows: "5"},
+                        input_html: {max_rows: "5"},
                         label: false,
                         placeholder: "Message #{participant.first.user.first_name} #{participant.first.user.last_name}"%>
           </div>
           <div>
-            <%= f.submit class:"btn btn-primary h-100" %>
+            <%= f.submit class:"d-none" %>
+            <%= button_tag type: 'submit', class: "btn btn-primary" do %>
+                <i class="fa fa-paper-plane" aria-hidden="true"></i> Send Message
+            <% end %>
           </div>
       </div>
     <% end %>

@@ -50,7 +50,9 @@
 
 .chat-bottom{
   display: flex;
-  height: 10%;
+  .btn{
+    height: 80%;
+  }
 }
 
 // ! USED IN CHATROOM INDEX
