@@ -68,6 +68,7 @@
   </div>
   <div class="user-chatroom-cards">
     <% @chatrooms.reverse.each do |chatroom| %>
+      <% last_message = chatroom.messages.last.created_at%>
       <% if policy(chatroom).show? %> <!-- CHEEKY -->
         <% participant = chatroom.participants.reject{ |participant| participant.user == current_user }%>
         <div class="card-user my-4">
@@ -78,6 +79,7 @@
           <% end %>
           <div class="card-user-infos">
             <h2><%= participant.first.user.first_name%> <%= participant.first.user.last_name%></h2>
+            <p>Last message: <%= time_ago_in_words(last_message) %> ago</p>
             <p><strong><%= participant.first.user.email %></strong></p>
           </div>
           <div class="contact-buttons">
