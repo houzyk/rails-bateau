@@ -5,6 +5,7 @@
   .user-chatroom-cards{
     width: 35%;
     overflow: scroll;
+    height: 100%;
     .card-user{
       margin: 10px;
       border-radius: 10px;
@@ -13,7 +14,6 @@
 
   .chat-region{
     width: 65%;
-    background-color: red;
   }
 }
 
