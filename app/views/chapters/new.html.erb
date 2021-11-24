@@ -1,4 +1,7 @@
 <div class="container my-3 shadow p-5">
-  <h1>Create a chapter for <%= @subject.name %></h1>
+  <%= link_to subject_path(@subject), class:'d-inline', id:'back' do%>
+    <h1 class="far fa-arrow-alt-circle-left" data-toggle="tooltip" data-placement="bottom" title="Go back"></h1>
+  <% end %>
+  <h1 class='d-inline'>Create a chapter for <%= @subject.name %></h1>
   <%= render 'shared/chapterform' %>
 </div>
