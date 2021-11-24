@@ -3,7 +3,7 @@ class Message < ApplicationRecord
   belongs_to :chatroom
   validates :content, presence: true
   before_create :confirm_participant
-  has_rich_text :content
+  # has_rich_text :content
 
   def confirm_participant
     if self.chatroom.isprivate

@@ -1,43 +1,61 @@
+.chatroom-container{
+  height: 90vh;
+  width: 100vw;
+  display: flex;
+  .user-chatroom-cards{
+    width: 35%;
+    overflow: scroll;
+    height: 100%;
+    .card-user{
+      margin: 10px;
+      border-radius: 10px;
+    }
+  }
+  .chat-region{
+    width: 65%;
+    margin: 10px;
+    .chat-top{
+      display: flex;
+      justify-content: space-between;
+      margin-top: 15px;
+    }
+  }
+}
+
+
 .message-box-current-user {
   border-radius: 10px;
   margin: 10px 0;
   padding: 10px;
-  width: 35vw;
+  width: 25vw;
   overflow-anchor: none;
-
-
+  background-color: hsl(209, 86%, 30%);
 }
 
 .message-box-other-user {
   border-radius: 10px;
   margin: 10px 0;
   padding: 10px;
-  width: 35vw;
+  width: 25vw;
   overflow-anchor: none;
-
-
+  background-color: hsl(209, 86%, 43%);
 }
-.chat-form{
-  height: 12vh;
-  overflow: scroll;
-}
+
 #messages{
-  height: 60vh;
+  height: 85%;
   overflow: scroll;
-
   display: flex;
   flex-direction: column-reverse;
 }
 
-.text-box {
-  position: relative;
-  top: 20px;
+.chat-bottom{
+  display: flex;
+  .btn{
+    height: 80%;
+  }
 }
 
-.text-create {
-  font-weight: 700;
-}
-
+// ! USED IN CHATROOM INDEX
 .contact-buttons{
   position: absolute;
   right: 40px;
