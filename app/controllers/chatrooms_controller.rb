@@ -3,6 +3,9 @@ class ChatroomsController < ApplicationController
 
   def index
     @chatrooms = policy_scope(Chatroom)
+    # Only show chatrooms where a message has been sent
+    @chatrooms = @chatrooms.select { |chatroom| chatroom.messages.any? }
+                            .sort_by { |chatroom| chatroom.messages.last.created_at }
     @chatroom = Chatroom.new
     user_chatrooms = @chatrooms.select do |chatroom|
       chatroom.participants.any? do |participant|
@@ -14,6 +17,9 @@ class ChatroomsController < ApplicationController
 
   def show
     @chatrooms = Chatroom.all
+    @chatrooms = @chatrooms
+                  .select { |chatroom| chatroom.messages.any? }
+                  .sort_by { |chatroom| chatroom.messages.last.created_at }
     @message = Message.new
     @chatroom = Chatroom.find(params[:id])
   end
