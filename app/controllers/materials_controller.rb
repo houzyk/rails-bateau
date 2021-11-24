@@ -11,7 +11,7 @@ class MaterialsController < ApplicationController
     @material = Material.new(material_params)
     @material.chapter = @chapter
     if @material.save
-      redirect_to subject_chapter_path(@subject, @chapter)
+      redirect_to subject_chapter_path(@subject, @chapter, anchor:"topic-#{@material.id}")
     else
       render :new
     end

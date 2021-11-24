@@ -1,6 +1,6 @@
 // adding root variable
 #logo{
-  --factor: 0.2;
+  --factor: 0.8;
   height: calc(var(--factor) * 15em);
   width: calc(var(--factor) * 15em);
 }
