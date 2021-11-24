@@ -1,4 +1,7 @@
 <div class="container my-3 shadow p-5">
-  <h1>Edit the chapter: <%= @chapter.title %></h1>
+  <%= link_to subject_chapter_path(@chapter.subject,@chapter), class:'d-inline', id:"title", id:'back', data: {toggle: "tooltip", placement:"bottom"}, title:"Go back" do%>
+    <h1 class="far fa-arrow-alt-circle-left"></h1>
+  <% end %>
+  <h1 class="d-inline">Edit the chapter: <%= @chapter.title %></h1>
   <%= render 'shared/chapterform' %>
 </div>
