@@ -4,9 +4,6 @@
   <div id="remote-video"></div>
   <div id="local-video"></div>
   <div class="buttons-panel">
-    <%= link_to room_path(@room), method: :delete, class: "btn btn-danger" do %>
-      <i class="fas fa-phone"></i>
-    <% end %>
     <%= link_to "#", class: "btn btn-dark" do%>
       <i class="fas fa-volume-mute"></i>
     <% end %>
@@ -18,6 +15,9 @@
     <% end %>
     <%= link_to "#", class: "btn btn-dark" do%>
       <i class="fas fa-user-plus"></i>
+    <% end %>
+    <%= link_to room_path(@room), method: :delete, class: "btn btn-danger" do %>
+      <i class="fas fa-phone"></i>
     <% end %>
   </div>
 </div>
