@@ -1,4 +1,4 @@
-<div class="calendar-page w-100 mt-4">
+<div class="calendar-page w-100 mb-4 mt-4">
   <div class="row mx-3 w-100">
     <div class="col-12 col-md-6 col-lg-4">
       <div class="search-region">
@@ -29,10 +29,14 @@
               <p><%= schedule.date %></p>
             </div>
             <% if policy(schedule).update? %>
-              <%= link_to 'Edit', edit_schedule_path(schedule), class: "btn btn-info" %>
+              <%= link_to edit_schedule_path(schedule), class: "btn btn-info", data: {toggle: "tooltip", placement: "bottom"}, title:"Edit the content" do %>
+                <i class="fas fa-edit"></i>
+              <% end %>
             <% end %>
             <% if policy(schedule).destroy? %>
-              <%= link_to 'Delete', schedule_path(schedule), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger"%>
+              <%= link_to schedule_path(schedule), method: :delete, data: { confirm: 'Are you sure?', toggle: "tooltip", placement: "bottom"}, title:"Delete the content", class: "btn btn-danger" do %>
+                <i class="fas fa-trash-alt"></i>
+              <% end %>
             <% end %>
           </div>
         <% end %>
