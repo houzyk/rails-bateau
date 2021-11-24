@@ -42,27 +42,14 @@
   opacity: 0.7;
 }
 
-.chat-form{
-  height: 12vh;
-  overflow: scroll;
-}
 #messages{
-  height: 60vh;
+  height: 80%;
   overflow: scroll;
-
   display: flex;
   flex-direction: column-reverse;
 }
 
-.text-box {
-  position: relative;
-  top: 20px;
-}
-
-.text-create {
-  font-weight: 700;
-}
-
+// ! USED IN CHATROOM INDEX
 .contact-buttons{
   position: absolute;
   right: 40px;
