@@ -1,1 +1,25 @@
 // !Currently not in use, do not delete
+.chapter-grid{
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  gap: 1em;
+  margin: 2em auto;
+  width: 95%;
+  .accordion{
+    position: sticky;
+    height: 80vh;
+    top: 100px;
+    overflow-y: auto;
+  }
+}
+.anchor{
+  height: 1px;
+  width: 1px;
+  top: -100px;
+}
+
+.top-btn{
+  position: absolute;
+  right: 0;
+  bottom: -3em;
+}

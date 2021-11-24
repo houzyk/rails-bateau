@@ -1,8 +1,8 @@
 <div class="jumbotron container my-4 bg-white shadow">
   <div class="d-flex justify-content-between align-items-center">
     <div class="left-content">
-      <%= link_to subjects_path, class:'d-inline', id:'back' do%>
-        <i class="far fa-arrow-alt-circle-left" data-toggle="tooltip" data-placement="bottom" title="Go back"></i>
+      <%= link_to subjects_path, class:'d-inline', id:'back', data: {toggle: "tooltip", placement:"bottom"}, title:"Go back" do%>
+        <i class="far fa-arrow-alt-circle-left"></i>
       <% end %>
       <h1 class="display-4 d-inline"><%= @subject.name %> </h1>
     </div>

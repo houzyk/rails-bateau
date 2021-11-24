@@ -1,5 +1,5 @@
 
-<h2>All Chapters for <%= @subject.name %></h2>
+<h3>All Chapters for <%= @subject.name %></h3>
 <% @subject.chapters.each do |chapter| %>
   <div class="card">
     <div class="card-header" id="heading<%= chapter.id%>">
@@ -22,5 +22,3 @@
     </div>
   </div>
 <% end %>
-
-
