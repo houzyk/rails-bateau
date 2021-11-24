@@ -7,9 +7,18 @@
     <%= link_to room_path(@room), method: :delete, class: "btn btn-danger" do %>
       <i class="fas fa-phone"></i>
     <% end %>
-    <%= link_to 'Mute', "#", class: "btn btn-dark" %>
-    <%= link_to 'Add A Participant', "#", class: "btn btn-dark"  %>
-    <%= link_to 'KeyPad', "#", class: "btn btn-dark"  %>
+    <%= link_to "#", class: "btn btn-dark" do%>
+      <i class="fas fa-volume-mute"></i>
+    <% end %>
+    <%= link_to "#", class: "btn btn-dark" do%>
+      <i class="fas fa-microphone-slash"></i>
+    <% end %>
+    <%= link_to "#", class: "btn btn-dark" do%>
+      <i class="fas fa-keyboard"></i>
+    <% end %>
+    <%= link_to "#", class: "btn btn-dark" do%>
+      <i class="fas fa-user-plus"></i>
+    <% end %>
   </div>
 </div>
 
