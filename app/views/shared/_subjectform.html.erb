@@ -1,12 +1,10 @@
-<div class="container mt-4">
-  <div class="form-item">
-    <div class="shadow-lg p-3 mb-5 bg-light rounded">
-      <%= simple_form_for (@subject) do |f| %>
-        <%= f.input :name %>
-        <%= f.input :description %>
-        <%= f.association :category, input_html: { class: 'select2' }%>
-        <%= f.submit class: "btn btn-primary btn-lg btn-block" %>
-      <% end %>
-    </div>
+<div class="form-item">
+  <div class="">
+    <%= simple_form_for (@subject) do |f| %>
+      <%= f.input :name %>
+      <%= f.input :description %>
+      <%= f.association :category, input_html: { class: 'select2' }%>
+      <%= f.submit class: "btn btn-primary btn-lg btn-block" %>
+    <% end %>
   </div>
 </div>

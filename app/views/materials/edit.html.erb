@@ -1,4 +1,7 @@
 <div class="container my-3 shadow p-5">
-  <h1>Edit your topic for the chapter: <%= @material.chapter.title %></h1>
+  <%= link_to subject_chapter_path(@material.chapter.subject,@material.chapter, anchor:"topic-#{@material.id}"), class:'d-inline', id:"title", id:'back', data: {toggle: "tooltip", placement:"bottom"}, title:"Go back" do%>
+    <h1 class="far fa-arrow-alt-circle-left"></h1>
+  <% end %>
+  <h1 class='d-inline'>Edit your topic for the chapter: <%= @material.chapter.title %></h1>
   <%= render 'shared/materialform' %>
 </div>

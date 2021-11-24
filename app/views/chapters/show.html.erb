@@ -1,43 +1,67 @@
-<div class="jumbotron container my-4 position-relative">
-  <%= link_to subject_path(@chapter.subject), class:'position-absolute', id:'back' do%>
-    <i class="far fa-arrow-alt-circle-left"></i>
-  <% end %>
-  <h1 class="display-4"><%= @chapter.title %></h1>
-  <p class="lead"><%= @chapter.description %></p>
+<div class="jumbotron container my-4 bg-white shadow">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <div class="left-content">
+      <%= link_to subject_path(@chapter.subject), class:'d-inline', id:"title", id:'back', data: {toggle: "tooltip", placement:"bottom"}, title:"Go back" do%>
+        <i class="far fa-arrow-alt-circle-left"></i>
+      <% end %>
+      <h1 class="display-4 d-inline"><%= @chapter.title %></h1>
+    </div>
+    <div class="right-content">
+
+      <% if policy(@chapter).update? %>
+        <%= link_to edit_chapter_path(@chapter), data: {toggle: "tooltip", placement:"bottom"}, title:"Edit the chapter", class:"btn btn-info rounded" do %>
+          <i class="fas fa-edit"></i>
+        <% end %>
+        <%= link_to chapter_path(@chapter), method: :delete, data: {confirm: 'Are you sure', toggle: "tooltip", placement:"bottom"}, title:"Delete the chapter", class:"btn btn-danger rounded" do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
+      <% end %>
+      <% if policy(Material).create? %>
+        <%= link_to 'Add a new topic', new_subject_chapter_material_path(@chapter.subject, @chapter),class:"btn btn-primary rounded" %>
+      <% end %>
+    </div>
+  </div>
+  <p class="lead text-justify"><%= @chapter.description %></p>
   <hr class="my-4">
-
-  <% if policy(Material).create? %>
-    <%= link_to 'Add a new material', new_subject_chapter_material_path(@chapter.subject, @chapter),class:"btn btn-primary rounded" %>
-  <% end %>
-
-  <% if policy(@chapter).update? %>
-    <%= link_to 'Edit chapter', edit_chapter_path(@chapter), class:"btn btn-info rounded" %>
-    <%= link_to 'Delete', chapter_path(@chapter), method: :delete, data: {confirm: 'Are you sure'}, class:"btn btn-danger rounded"  %>
-  <% end %>
-
 </div>
 
-<div class="container chapter-container shadow p-5">
-  <h3>This chapter includes <%= pluralize(@chapter.materials.count, "topic") %> </h3>
-  <hr>
-
-
-  <% @chapter.materials.each do |material| %>
-      <h2><%= material.name %></h2>
-
-      <%= material.content %>
-      <br>
-
-      <% if policy(material).update? %>
-        <%= link_to 'Edit Content', edit_material_path(material), class:'btn btn-info' %>
-        <%= link_to 'Delete Content', material_path(material), method: :delete, data: {confirm: 'Are you sure'}, class:'btn btn-danger'  %>
-      <% end %>
-
-      <hr>
-
-  <% end %>
-
+<div class="chapter-grid">
   <div class="accordion ml-4 mb-4" id="accordionExample" >
     <%= render 'shared/chapteraccordion' %>
+  </div>
+  <div class="chapter-content">
+    <div class='list-group list-group-flush mb-4'>
+    <h3>This chapter includes <strong><%= pluralize(@chapter.materials.count, "topic") %></strong>: </h3>
+      <% @chapter.materials.each do |material| %>
+        <%= link_to material.name, "#topic-#{material.id}",  class:"list-group-item list-group-item-action" %>
+      <% end %>
+    </div>
+      <hr>
+
+
+    <% @chapter.materials.each do |material| %>
+      <div class="content position-relative text-justify mb-4" >
+        <div class="anchor position-absolute" id="topic-<%= material.id%>"></div>
+        <div class="d-flex justify-content-between align-items-center">
+          <h2><%= material.name %></h2>
+          <div class="right-content">
+            <% if policy(material).update? %>
+              <%= link_to edit_material_path(material), class:'btn btn-info', data: {toggle: "tooltip", placement:"bottom"}, title:"Edit the content" do %>
+                <i class="fas fa-edit"></i>
+              <% end %>
+              <%= link_to material_path(material), data: {confirm: 'Are you sure', toggle: "tooltip", placement:"bottom"}, title:"Delete the content", class:'btn btn-danger'  do%>
+                <i class="fas fa-trash-alt"></i>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+        <%= material.content %>
+        <%= link_to "", class:"btn btn-primary top-btn",data: {toggle: "tooltip", placement:"bottom"}, title:"Go to top" do %>
+          <i class="fas fa-arrow-up"></i>
+        <% end %>
+      </div>
+      <br>
+      <hr>
+    <% end %>
   </div>
 </div>
