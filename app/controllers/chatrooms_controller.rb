@@ -4,7 +4,6 @@ class ChatroomsController < ApplicationController
   def index
     @chatrooms = policy_scope(Chatroom)
     @chatroom = Chatroom.new
-    @users = User.all
     user_chatrooms = @chatrooms.select do |chatroom|
       chatroom.participants.any? do |participant|
         participant.user_id == current_user.id
@@ -14,7 +13,7 @@ class ChatroomsController < ApplicationController
   end
 
   def show
-    @users = User.all
+    @chatrooms = Chatroom.all
     @message = Message.new
     @chatroom = Chatroom.find(params[:id])
   end
