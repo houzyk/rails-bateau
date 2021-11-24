@@ -47,14 +47,15 @@
       <% end %>
     </div>
     <div class="chat-bottom">
-      <%= simple_form_for [ @chatroom, @message ], remote: true do |f| %>
-        <div>
+        <div class="flex-grow-1">
+          <%= simple_form_for [ @chatroom, @message ], remote: true do |f| %>
           <%= f.input :content,
                       label: false,
-                      placeholder: "Message #{participant.first.user.first_name} #{participant.first.user.last_name}"%>
+                      placeholder: "Message #{participant.first.user.first_name} #{participant.first.user.last_name}",
+                      class:"message-input"%>
         </div>
         <div>
-          <%= button_tag type:"submit", class: "btn btn-primary" do %>
+          <%= button_tag type:"submit", class: "btn btn-primary message-send" do %>
             <i class="fas fa-paper-plane"></i> Send Message
           <% end %>
         </div>

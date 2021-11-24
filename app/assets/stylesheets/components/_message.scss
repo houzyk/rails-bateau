@@ -43,10 +43,21 @@
 }
 
 #messages{
-  height: 80%;
+  height: 85%;
   overflow: scroll;
   display: flex;
   flex-direction: column-reverse;
+}
+
+.chat-bottom{
+  display: flex;
+  height: 10%;
+  .message-input{
+    height: 100%;
+  }
+  .message-send{
+    height: 90%;
+  }
 }
 
 // ! USED IN CHATROOM INDEX
