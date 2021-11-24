@@ -78,11 +78,9 @@
   display: flex;
   .search-region{
     height: 80vh;
-    width: 30%;
     overflow: scroll;
   }
   .calendar-region{
-    width: 70%;
     height: 80vh;
   }
 }
@@ -131,4 +129,14 @@
   top: 0px;
   z-index: 999;
   width: 100%;
+}
+
+@media (max-width: 992px){
+  .calendar-region {
+    margin-top: 50px;
+    margin-bottom: 20px;
+  }
+  .calendar-title {
+    font-size: 20px !important;
+  }
 }

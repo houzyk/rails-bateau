@@ -1,7 +1,7 @@
-<div class="calendar-page m-4">
-  <div class="row">
-    <div class="col-12 col-lg-6">
-      <div class="container search-region">
+<div class="calendar-page w-100 mt-4">
+  <div class="row mx-3 w-100">
+    <div class="col-12 col-md-6 col-lg-4">
+      <div class="search-region">
         <div class="create-schedule bg-light">
           <div class="search-bar-schedule">
             <%= form_tag schedules_path, method: :get do %>
@@ -39,8 +39,8 @@
       </div>
     </div>
 
-    <div class="col-12 col-lg-6">
-      <div class="container calendar-region">
+    <div class="col-12 col-md-6 col-lg-8">
+      <div class="calendar-region">
         <%= month_calendar do |date| %>
           <%= date.day %>
           <div class="cal-events">
