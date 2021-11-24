@@ -1,4 +1,52 @@
 <div class="chatroom-container">
+  <div class="chat-region">
+    <% participant = @chatroom.participants.reject{ |participant| participant.user == current_user }%>
+    <h1><%= link_to chatrooms_path, class:'text-decoration-none' do%>
+      <i class="far fa-arrow-alt-circle-left"></i>
+    <% end %> <%= participant.first.user.first_name%> <%= participant.first.user.last_name%></h1>
+    <%= link_to 'Video', new_chatroom_room_path(@chatroom), class:"btn btn-primary" %>
+    <div id="messages" data-chatroom-id="<%= @chatroom.id%>">
+      <% @chatroom.messages.reverse.each do |message|%>
+        <div id="message-<%= message.id%>"
+          <% if current_user == message.user %>
+            class="d-flex justify-content-end"
+          <% else %>
+            class="d-flex justify-content-start"
+          <% end %>
+        >
+          <div
+            <% if current_user == message.user %>
+              class="message-box-current-user bg-dark text-light"
+            <% else %>
+              class="message-box-other-user bg-info"
+            <% end %>
+          >
+            <div>
+              <h5><%= message.user.first_name%></h5>
+              <p><%= message.content%></p>
+              <small><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <div class="fixed-bottom bg-transparent text-dark text-box">
+      <%= simple_form_for [ @chatroom, @message ], remote: true do |f| %>
+      <div class="d-flex">
+          <div class="flex-grow-1">
+            <%= f.rich_text_area :content,
+              input_html: {max_rows: "5"},
+                        label: false,
+                        placeholder: "Message #{participant.first.user.first_name} #{participant.first.user.last_name}",
+                        class:"chat-form" %>
+          </div>
+          <div class="text-right">
+            <%= f.submit class:"btn btn-primary h-100 rounded-lg text-create"%>
+          </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
   <div class="user-chatroom-cards">
     <% @users.each do |user| %>
       <% if user != current_user %>
@@ -22,78 +70,5 @@
         </div>
       <% end %>
     <% end %>
-  </div>
-  <div class="chat-region">
-
-
-
-
-
-
-
-
-  <% participant = @chatroom.participants.reject{ |participant| participant.user == current_user }%>
-  <h1><%= link_to chatrooms_path, class:'text-decoration-none' do%>
-    <i class="far fa-arrow-alt-circle-left"></i>
-  <% end %> <%= participant.first.user.first_name%> <%= participant.first.user.last_name%></h1>
-  <%= link_to 'Video', new_chatroom_room_path(@chatroom), class:"btn btn-primary" %>
-  <div id="messages" data-chatroom-id="<%= @chatroom.id%>">
-    <% @chatroom.messages.reverse.each do |message|%>
-      <div id="message-<%= message.id%>"
-        <% if current_user == message.user %>
-          class="d-flex justify-content-end"
-        <% else %>
-          class="d-flex justify-content-start"
-        <% end %>
-      >
-        <div
-          <% if current_user == message.user %>
-            class="message-box-current-user bg-dark text-light"
-          <% else %>
-            class="message-box-other-user bg-info"
-          <% end %>
-        >
-          <div>
-            <h5><%= message.user.first_name%></h5>
-            <p><%= message.content%></p>
-            <small><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
-          </div>
-        </div>
-      </div>
-    <% end %>
-  </div>
-  <div class="fixed-bottom bg-transparent text-dark text-box">
-    <%= simple_form_for [ @chatroom, @message ], remote: true do |f| %>
-    <div class="d-flex">
-        <div class="flex-grow-1">
-          <%= f.rich_text_area :content,
-            input_html: {max_rows: "5"},
-                      label: false,
-                      placeholder: "Message #{participant.first.user.first_name} #{participant.first.user.last_name}",
-                      class:"chat-form" %>
-        </div>
-        <div class="text-right">
-          <%= f.submit class:"btn btn-primary h-100 rounded-lg text-create"%>
-        </div>
-    </div>
-    <% end %>
-  </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   </div>
 </div>
