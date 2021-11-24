@@ -9,7 +9,7 @@
     <% if current_user != message.user %>
       class="message-box-current-user text-light"
     <% else %>
-      class="message-box-other-user"
+      class="message-box-other-user text-light"
     <% end %>
   >
     <h5><%= message.user.first_name %></h5>
