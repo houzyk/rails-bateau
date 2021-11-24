@@ -1,5 +1,4 @@
 .videos-container{
-  width: 100vh;
   height: 100vh;
   position: relative;
 }
@@ -7,18 +6,18 @@
 
 #remote-video{
   width: 100vw;
-  height: 100vh;
+  height: 90vh;
   video{
     width: 100%;
-    height: 100%;
+    height: 92vh;
   }
 }
 
 #local-video{
-  width: 30%;
+  width: 15%;
   position: absolute;
   top: 5%;
-  left: 5%;
+  left: 10%;
   border-radius: 15px;
   video{
     width: 100%;
