@@ -54,7 +54,9 @@
                       placeholder: "Message #{participant.first.user.first_name} #{participant.first.user.last_name}"%>
         </div>
         <div>
-          <%= f.submit class:"btn btn-primary"%>
+          <%= button_tag type:"submit", class: "btn btn-primary" do %>
+            <i class="fas fa-paper-plane"></i> Send Message
+          <% end %>
         </div>
       <% end %>
     </div>
