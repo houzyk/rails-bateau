@@ -67,23 +67,22 @@
     <% end %>
   </div>
   <div class="user-chatroom-cards">
-    <% @users.each do |user| %>
-      <% if user != current_user %>
+    <% @chatrooms.reverse.each do |chatroom| %>
+      <% if policy(chatroom).show? %> <!-- CHEEKY -->
+        <% participant = chatroom.participants.reject{ |participant| participant.user == current_user }%>
         <div class="card-user my-4">
-          <% if user.photo.attached?%>
-            <%= cl_image_tag user.photo.key, gravity: :face, crop: :thumb  %>
+          <% if participant.first.user.photo.attached?%>
+            <%= cl_image_tag participant.first.user.photo.key, gravity: :face, crop: :thumb  %>
           <% else %>
             <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
           <% end %>
           <div class="card-user-infos">
-            <h2><%= user.first_name %> <%= user.last_name %>
-            <p><strong><%= user.email %></strong></p>
+            <h2><%= participant.first.user.first_name%> <%= participant.first.user.last_name%></h2>
+            <p><strong><%= participant.first.user.email %></strong></p>
           </div>
-          <div class="teacher-contact">
-            <% if policy(Chatroom).new? %>
-              <%= link_to new_chatroom_path(user: user), class:"btn btn-primary" do %>
-                <i class="fas fa-comments"></i>
-              <% end %>
+          <div class="contact-buttons">
+            <%= link_to chatroom_path(chatroom), class:"btn btn-primary" do %>
+              <i class="fas fa-comments"></i>
             <% end %>
           </div>
         </div>
