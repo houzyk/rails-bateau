@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: :home
+  skip_before_action :authenticate_user!, only: %i[home egg]
 
   def home
     @subjects = Subject.all
@@ -14,4 +14,6 @@ class PagesController < ApplicationController
     @count_students = @students.count
     @count_teachers = @teachers.count
   end
+
+  def egg; end
 end
