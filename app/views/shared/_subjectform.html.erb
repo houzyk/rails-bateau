@@ -2,7 +2,7 @@
   <div class="">
     <%= simple_form_for (@subject) do |f| %>
       <%= f.input :name %>
-      <%= f.input :description %>
+      <%= f.input :description, input_html:{rows: 10} %>
       <%= f.association :category, input_html: { class: 'select2' }%>
       <%= f.submit class: "btn btn-primary btn-lg btn-block" %>
     <% end %>
