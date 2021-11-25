@@ -15,7 +15,7 @@
     <% end %>
   </div>
   <div class="container d-flex justify-content-between align-items-center text-muted">
-    <h4>You have <strong><%= @subjects.count %></strong> subjects.</h4>
+    <h4>You have <strong><%= @subjects.count %></strong> subjects <i class="fas fa-book"></i></h4>
 
     <% if policy(Subject).create? %>
       <%= link_to "Create a subject", new_subject_path, class: "btn-primary btn-lg text-decoration-none mb-2" %>
