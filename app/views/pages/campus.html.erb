@@ -15,7 +15,7 @@
     <% end %>
   </div>
   <h4 class="text-muted">Your campus has <strong><%= @count_teachers%></strong> teachers and <strong><%= @count_students%></strong> students <i class="fas fa-user-friends"></i></h4>
-  <% @users.each do |user| %>
+  <% @users.reverse.each do |user| %>
     <% if user != current_user %>
       <div class="card-user my-4">
         <% if user.photo.attached?%>
