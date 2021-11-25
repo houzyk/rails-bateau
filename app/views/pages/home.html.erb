@@ -38,7 +38,7 @@
 
       <div class="col-12 col-md-8">
         <div class="subject-cards">
-          <% @subjects.first(5).each do |subject| %>
+          <% @subjects.reverse.first(5).each do |subject| %>
             <%= link_to subject_path(subject) do%>
               <div class="subject-card" style="background-image: url('<%= cl_image_path subject.category.photo.key, height: 300, crop: :fill %>')">
                 <div class="subject-title">
