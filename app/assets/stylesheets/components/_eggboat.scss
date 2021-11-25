@@ -4,6 +4,12 @@
   grid-template-columns: 1fr 1fr 1fr;
 }
 
+#egg-box{
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+}
+
 .logo{
   --factor: 1;
   height: calc(var(--factor) * 15em);
