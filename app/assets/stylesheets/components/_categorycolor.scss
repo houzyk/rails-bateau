@@ -2,7 +2,7 @@
   --transparency: 0.7;
 }
 .science{
-  background-color: hsla(226, 84%, 43%, var(--transparency));
+  background-color: hsla(39, 100%, 50%, var(--transparency));
 }
 .art{
   background-color: hsla(0, 100%, 50%, var(--transparency));
@@ -26,4 +26,16 @@
 
 .geography{
   background-color: rgba(129, 43, 129, var(--transparency));
+}
+
+.law{
+  background-color: rgba(31, 167, 205, var(--transparency));
+}
+
+.technology{
+  background-color: rgba(236, 102, 131, var(--transparency));
+}
+
+.music{
+  background-color: rgba(235, 238, 65, var(--transparency));
 }
