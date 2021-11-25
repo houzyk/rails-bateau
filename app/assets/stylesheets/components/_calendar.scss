@@ -87,7 +87,7 @@
 
 .card-calendar {
   overflow: hidden;
-  height: 120px;
+  min-height: 120px;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.1);
   display: flex;
@@ -98,11 +98,13 @@
   .btn-info{
     position: absolute;
     right: 80px;
+    bottom: 1em;
   }
 
   .btn-danger{
     position: absolute;
     right: 25px;
+    bottom: 1em;
   }
 }
 

@@ -21,7 +21,7 @@ class MaterialsController < ApplicationController
 
   def update
     if @material.update(material_params)
-      redirect_to subject_chapter_path(@material.chapter.subject, @material.chapter)
+      redirect_to subject_chapter_path(@material.chapter.subject, @material.chapter , anchor:"topic-#{@material.id}")
     else
       render :edit
     end
