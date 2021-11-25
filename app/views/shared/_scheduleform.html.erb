@@ -1,5 +1,5 @@
 <%= simple_form_for (@schedule) do |f| %>
-  <%= f.input :content %>
+  <%= f.rich_text_area :content, placeholder: "Add your content" %>
   <%= f.input :date, html5: true %>
   <% if current_user.teacher %>
     <%= f.input :public%>
