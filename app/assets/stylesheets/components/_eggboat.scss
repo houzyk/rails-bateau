@@ -1,12 +1,27 @@
 // adding root variable
-#logo{
-  --factor: 0.8;
+.egg{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+#egg-box{
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+}
+
+.logo{
+  --factor: 1;
   height: calc(var(--factor) * 15em);
   width: calc(var(--factor) * 15em);
+  img{
+    height: 100%;
+    width: 100%;
+  }
 }
 
 
-#frame {
+.frame {
   position: relative;
   height: calc(var(--factor) * 15em);
   width: calc(var(--factor) * 15em);
@@ -18,7 +33,7 @@
   z-index: 2;
 }
 
-#frame:after {
+.frame:after {
   content: '';
   height: calc(var(--factor) * 5em);
   width: calc(var(--factor) * 5em);
@@ -30,7 +45,7 @@
   box-shadow: -4px 5px 31px rgba(255, 255, 0, 1);
 }
 
-#wave {
+.wave {
   background: radial-gradient(#3B3B92 38%, #1269E6 100%);
   height: calc(var(--factor) * 23em);
   width: calc(var(--factor) * 23em);
@@ -42,7 +57,7 @@
   animation: wave 10s linear infinite;
 }
 
-#boat {
+.boat {
   width: calc(var(--factor) * 7.5em);
   height: calc(var(--factor) * 2.125em);
   background: linear-gradient(18deg, #457B96 29%,#62A6E4 100%);
@@ -60,7 +75,7 @@
   border-bottom: calc(var(--factor) * 3px) outset #e9e9e9;
 }
 
-#boat:before {
+.boat:before {
   content: '';
   display: block;
   width: 0;
@@ -74,7 +89,7 @@
   z-index: 1;
   transform: rotateY(calc(var(--factor) * 500px));
 }
-#boat:after {
+.boat:after {
   content: '';
   display: block;
   width: 0;
