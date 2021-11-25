@@ -6,6 +6,7 @@
       <%= f.rich_text_area :content,
             placeholder: "Add name your content here",
                 class:"material-form" %>
-      <%= f.submit 'Add Topic', class:'btn btn-primary mt-2 btn-block' %>
+      <% word = @material.id.present? ? "Edit" : "Add" %>
+      <%= f.submit "#{word} Topic", class:'btn btn-primary mt-2 btn-block' %>
     <% end %>
   </div>

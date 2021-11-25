@@ -49,7 +49,7 @@
               <%= link_to edit_material_path(material), class:'btn btn-info', data: {toggle: "tooltip", placement:"bottom"}, title:"Edit the content" do %>
                 <i class="fas fa-edit"></i>
               <% end %>
-              <%= link_to material_path(material), data: {confirm: 'Are you sure', toggle: "tooltip", placement:"bottom"}, title:"Delete the content", class:'btn btn-danger'  do%>
+              <%= link_to material_path(material), data: {confirm: 'Are you sure', toggle: "tooltip", placement:"bottom"}, title:"Delete the content", class:'btn btn-danger', method: :delete  do%>
                 <i class="fas fa-trash-alt"></i>
               <% end %>
             <% end %>
