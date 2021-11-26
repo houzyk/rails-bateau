@@ -75,7 +75,7 @@
           <% if participant.first.user.photo.attached?%>
             <%= cl_image_tag participant.first.user.photo.key, gravity: :face, crop: :thumb  %>
           <% else %>
-            <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+            <%= image_tag 'user.png' %>
           <% end %>
           <div class="card-user-infos">
             <h2><%= participant.first.user.first_name%> <%= participant.first.user.last_name%></h2>

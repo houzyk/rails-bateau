@@ -21,7 +21,7 @@
         <% if user.photo.attached?%>
           <%= cl_image_tag user.photo.key, gravity: :face, crop: :thumb  %>
         <% else %>
-          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+          <%= image_tag 'user.png' %>
         <% end %>
         <div class="card-user-infos">
           <% word = user.teacher? ? "Teacher" : "Student"%>
