@@ -4,6 +4,7 @@ class Schedule < ApplicationRecord
   validate :date_cannot_be_in_the_past
   has_rich_text :content
 
+
   def date_cannot_be_in_the_past
     errors.add(:date, 'can\'t be in the past') if date.present? && date < Date.today
   end
@@ -11,7 +12,7 @@ class Schedule < ApplicationRecord
 include PgSearch::Model
 
   pg_search_scope :search_by_content,
-    against: [:content],
+    associated_against: {rich_text_content: [:body]},
     using: {
     tsearch: { prefix: true }
     }
