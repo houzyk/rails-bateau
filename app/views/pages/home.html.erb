@@ -7,7 +7,7 @@
             <% if current_user.photo.attached? %>
               <%= cl_image_tag current_user.photo.key, crop: :thumb, gravity: :face, class:"avatar-large mx-auto", alt: "avatar-large" %>
             <% else %>
-              <%= image_tag "https://kitt.lewagon.com/placeholder/users/arthur-littm", class: "avatar-large mx-auto", alt: "avatar-large" %>
+              <%= image_tag "user.png", class: "avatar-large mx-auto", alt: "avatar-large" %>
             <% end %>
             <div class="text-center mt-4">
               <h3><%= current_user.first_name %> <%= current_user.last_name %></h3>
