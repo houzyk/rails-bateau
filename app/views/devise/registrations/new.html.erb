@@ -1,8 +1,8 @@
+<!--
 <div class="container text-center my-5 mx-auto">
   <h1><strong>Ahoy Sailor, Registration Closed!</strong></h1>
   <p>If you wish to come aboard, kindly contact us at the link <strong><a target="_blank" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">here</a></strong></p>
   <p>Thank you</p>
-
   <div class="logo mx-auto">
     <div class="frame">
       <div class="wave"></div>
@@ -11,9 +11,8 @@
   </div>
 </div>
 
-
-<% unless current_user.nil? %>
-<!--
+<% unless current_user.nil? %><% end %>
+-->
 
 <div class="container mt-4">
   <div class="shadow-lg p-3 mb-5 bg-light rounded">
@@ -56,7 +55,3 @@
   <h3 class="py-3">Have an account with us already?</h3>
   <%= render "devise/shared/links" %>
 </div>
-
-
--->
-<% end %>
